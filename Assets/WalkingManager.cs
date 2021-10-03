@@ -121,8 +121,8 @@ public class WalkingManager : MonoBehaviour
         transform.position = newTransformPosition;
 
 
-        //leftFoot.transform.position = left.worldPos;
-        //rightFoot.transform.position = right.worldPos;
+        leftFoot.transform.position = left.worldPos;
+        rightFoot.transform.position = right.worldPos;
 
         StumbleUpdate();
 
@@ -233,17 +233,25 @@ public class WalkingManager : MonoBehaviour
             return;
         }
 
-        Vector3 newFootPosition = foot.transform.TransformPoint(Vector3.MoveTowards(foot.transform.localPosition, target, Time.deltaTime * speed));
+        
 
-        print(newFootPosition);
-        print(foot.transform.GetComponent<Rigidbody>());
-        foot.transform.GetComponent<Rigidbody>().MovePosition(newFootPosition);
+        //print(newFootPosition);
+        //print(foot.transform.GetComponent<Rigidbody>());
+        //foot.transform.GetComponent<Rigidbody>().MovePosition(newFootPosition);
+
+        //foot.transform.localPosition = Vector3.MoveTowards(foot.transform.localPosition, target, Time.deltaTime * speed);
+
+        
 
         //foot.transform.TransformDirection()
 
         //print(rightFoot.localPosition + rightFootForwardOffset);
 
-        disp = Vector3.Distance(foot.transform.localPosition, target);
+        //disp = Vector3.Distance(foot.transform.localPosition, target);
+        disp = Vector3.Distance(foot.transform.position, foot.transform.TransformPoint(target));
+
+        print(name + " | " + foot.transform.position.ToString());
+        print(foot.transform.TransformPoint(target));
 
         left.worldPos = left.transform.position;
         right.worldPos = right.transform.position;
@@ -255,13 +263,33 @@ public class WalkingManager : MonoBehaviour
             lift = Mathf.Clamp(-disp * (disp - stepLength) / (stepLength * stepLength / 4) * liftHeight - 0.1f, 0, 100);
         }
 
+        Vector3 footMotion;
+
+        if (Time.deltaTime * speed > disp)
+        {
+            footMotion = foot.transform.position - foot.transform.TransformPoint(target);
+        }
+        else
+        {
+            footMotion = (foot.transform.TransformPoint(target) - foot.transform.position).normalized * Time.deltaTime * speed;
+        }
+
+        //footMotion = //foot.transform.TransformPoint(Vector3.MoveTowards(foot.transform.localPosition, target, Time.deltaTime * speed));
+        //foot.transform.TransformPoint(target - foot.transform.localPosition).normalized * Time.deltaTime * speed; 
+        //Vector3.MoveTowards(foot.transform.localPosition, target, Time.deltaTime * speed) - foot.transform.localPosition; //foot.transform.TransformPoint(
+        //    (foot.transform.TransformPoint(target) - foot.transform.position).normalized * Time.deltaTime * speed;
+
+
+        foot.transform.GetComponent<CharacterController>().Move(footMotion); //+ new Vector3(0, lift - foot.transform.position.y, 0));
         //print(lift);
 
-        //print(disp);
+        print(disp);
+
+
 
         //foot.transform.localPosition += new Vector3(0, lift, 0);
 
-        if (disp < endDistance)//(Vector3.Distance(rightFoot.InverseTransformPoint(rightFootWorldPos), rightFoot.localPosition + rightFootForwardOffset) < endDistance)
+        if (disp < endDistance )//|| Vector3.Distance(foot.transform.position, transform.position) >= Vector3.Distance(foot.transform.position, foot.transform.TransformPoint(foot.forwardOffset)))//(Vector3.Distance(rightFoot.InverseTransformPoint(rightFootWorldPos), rightFoot.localPosition + rightFootForwardOffset) < endDistance)
         {
             state = WalkingState.Resting;
             timeToRest = timeToRestMax;
