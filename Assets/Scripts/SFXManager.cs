@@ -13,6 +13,8 @@ public class SFXManager : MonoBehaviour
 
     public List<int> playingClips;
 
+    public List<float> clipVolume;
+
     public void Awake()
     {
         instance = this;
@@ -30,9 +32,13 @@ public class SFXManager : MonoBehaviour
 
         playingClips.Add(index);
 
+        print("SFX: " + index.ToString());
+
         GameObject sourceInstance = Instantiate(audioSourcePrefab);
 
         sourceInstance.GetComponent<AudioSource>().clip = clips[index];
+
+        sourceInstance.GetComponent<AudioSource>().volume *= clipVolume[index];
 
         sourceInstance.GetComponent<DestroyTimer>().time = clips[index].length + 0.1f;
 

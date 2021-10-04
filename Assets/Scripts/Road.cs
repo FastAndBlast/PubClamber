@@ -13,7 +13,7 @@ public class Road : MonoBehaviour
     private float timeSinceCar;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         foreach (Transform child in transform)
         {

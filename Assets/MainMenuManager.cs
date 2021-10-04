@@ -7,6 +7,8 @@ public class MainMenuManager : MonoBehaviour
 {
     public List<Sprite> buttonIcons;
 
+    public List<AudioClip> clips;
+
     public void Play()
     {
         SceneMaster.instance.ChangeScene(SceneMaster.firstLevelScene);
@@ -43,5 +45,10 @@ public class MainMenuManager : MonoBehaviour
 
         canvas.GetChild(0).Find("Profanity").GetComponent<Image>().sprite = buttonIcons[profanityIndex];
         
+        if (GameManager.instance.profanity)
+        {
+            GetComponent<AudioSource>().clip = clips[Random.Range(0, 3)];
+            GetComponent<AudioSource>().Play();
+        }
     }
 }

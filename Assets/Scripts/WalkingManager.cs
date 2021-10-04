@@ -354,6 +354,8 @@ public class WalkingManager : MonoBehaviour
             lastFootMoved = foot.state;
             //lastFootMoved = 1 - lastFootMoved;
             //print(lastFootMoved);
+
+            SFXManager.instance.PlaySFX(Random.Range(20, 25));
         }
     }
 
@@ -509,9 +511,12 @@ public class WalkingManager : MonoBehaviour
 
         ragDoll.Flop();
 
+
+        print(GameManager.instance);
         if (GameManager.instance)
         {
-            //GameManager.instance.PlayerDeath(causeOfDeath);
+            print("hmmm");
+            GameManager.instance.PlayerDeath(causeOfDeath);
         }
     }
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9082920916590111267
+--- !u!1 &726876296456667909
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9082920916590111269}
-  - component: {fileID: 9082920916590111270}
-  - component: {fileID: 4793753235568535179}
+  - component: {fileID: 726876296456667911}
+  - component: {fileID: 726876296456667910}
   m_Layer: 0
   m_Name: ManagerHolder
   m_TagString: Untagged
@@ -18,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9082920916590111269
+--- !u!4 &726876296456667911
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9082920916590111267}
+  m_GameObject: {fileID: 726876296456667909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,32 +31,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9082920916590111270
+--- !u!114 &726876296456667910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9082920916590111267}
+  m_GameObject: {fileID: 726876296456667909}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4588a9cf81df67c41a0bee2696f69ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 5b2ed1395ef826647b36a586b03a7a16, type: 3}
+  - {fileID: 8300000, guid: cfd3df6d57084684aa92a55d1c90d5bf, type: 3}
+  - {fileID: 8300000, guid: 3293ddbf5e2243042843f2cd0ef0a2d9, type: 3}
+  - {fileID: 8300000, guid: ecf4bd9f1c7853e44809af2378406483, type: 3}
+  - {fileID: 8300000, guid: 8ef09fdbebb1f8840959595d62d39788, type: 3}
+  - {fileID: 8300000, guid: f585e7293a39ea149885fe812c45f0b9, type: 3}
+  - {fileID: 8300000, guid: 9ed2f67f46cf50444b6adb8edb78cf3a, type: 3}
+  - {fileID: 8300000, guid: 2a44213512ebc18419e34eb7633a89e3, type: 3}
+  - {fileID: 8300000, guid: d3589eebcf4baad4db01fbe93b2f8620, type: 3}
+  - {fileID: 8300000, guid: 59aa47083203fe84f945c50c0e17093a, type: 3}
+  - {fileID: 8300000, guid: beb9f1bd2c2649b419a46a6002e9ed51, type: 3}
+  - {fileID: 8300000, guid: a1c43a0e9cac6f5418030de3000633c0, type: 3}
+  - {fileID: 8300000, guid: 9db5378e4f56ace4e8f0fcf903f92ffc, type: 3}
+  - {fileID: 8300000, guid: 9ba656ce73c17b643abd063e7df5f5d4, type: 3}
+  - {fileID: 8300000, guid: 3e1a2a403ce072b4ea9930fa335d7589, type: 3}
+  - {fileID: 8300000, guid: 0e4879a57c65b3c4482b0378ea93936a, type: 3}
+  - {fileID: 8300000, guid: c056e3297f8e0014c8fb90ca528f468b, type: 3}
+  - {fileID: 8300000, guid: eb3c60862dc05084a913e8c14265a392, type: 3}
+  - {fileID: 8300000, guid: c77d33e02349f3a42962a9707f9e73a0, type: 3}
+  - {fileID: 8300000, guid: a2523095f379c9d4e8165cd26385e5f9, type: 3}
+  - {fileID: 8300000, guid: 7ecb625248185614abf7c5fc0c572eb0, type: 3}
+  - {fileID: 8300000, guid: 381967a335fe73241bfaef33ab81f1d5, type: 3}
+  - {fileID: 8300000, guid: 675f896cc4c6fd941b8282c20a0f9527, type: 3}
+  - {fileID: 8300000, guid: f3aaa0c950f79424989769a4ddf84c7f, type: 3}
+  - {fileID: 8300000, guid: 165f8a911019c9b459e5d9877fbe71cf, type: 3}
+  - {fileID: 8300000, guid: 60a57f96a70f90d4096a8e178d0a6dc1, type: 3}
+  - {fileID: 8300000, guid: 9a8ec3d87905aab47a4fb4b5b059e400, type: 3}
+  - {fileID: 8300000, guid: f2ffb2bdfc192e64daaa80505d1173f0, type: 3}
   audioSourcePrefab: {fileID: 6080823659866355401, guid: 626f69452638a3740921ad15afcbdd40, type: 3}
---- !u!114 &4793753235568535179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9082920916590111267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0899096f94dfea044aa5cb956d584e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  start: {fileID: 0}
-  loops: []
-  audioSourcePrefab: {fileID: 6080823659866355401, guid: 626f69452638a3740921ad15afcbdd40, type: 3}
+  playingClips: 
+  clipVolume:
+  - 1
+  - 1
+  - 1
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 0.8
+  - 0.8
+  - 0.8
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1

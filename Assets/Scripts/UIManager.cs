@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
 {
     bool paused;
 
+    public Transform fadePanel;
+
     public Transform darkPanel;
     public Transform pauseMenu;
     public Transform deathMenu;
@@ -36,6 +38,10 @@ public class UIManager : MonoBehaviour
 
     public static UIManager instance;
 
+    public float fade = 1;
+
+    bool fading;
+
     private void Awake()
     {
         instance = this;
@@ -47,10 +53,46 @@ public class UIManager : MonoBehaviour
         pauseMenu = canvas.Find("PauseMenu");
         deathMenu = canvas.Find("DeathMenu");
         darkPanel = canvas.Find("DarkPanel");
+        fadePanel = canvas.Find("FadePanel");
 
         //Update Profanity UI & Mute UI
 
         UpdateIcons();
+
+        FadeFromBlack();
+    }
+
+    private void Update()
+    {
+        if (fading)
+        {
+            fade += Time.deltaTime;
+        }
+        else
+        {
+            fade -= Time.deltaTime;
+
+            if (fade < 1)
+            {
+                GameManager.instance.OnFadedBack();
+            }
+        }
+        Color col = fadePanel.GetComponent<Image>().color;
+        col.a = fade;
+        fadePanel.GetComponent<Image>().color = col;
+
+    }
+
+    public void FadeToBlack(float newFade=0)
+    {
+        fade = newFade;
+        fading = true;
+    }
+
+    public void FadeFromBlack()
+    {
+        //fade = newFade;
+        fading = false;
     }
 
     public void Death(string causeOfDeath)
@@ -76,7 +118,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateIcons()
     {
-        if (paused || deathMenu.gameObject.activeSelf)
+        if (paused || deathMenu.gameObject.activeInHierarchy)
         {
             darkPanel.gameObject.SetActive(true);
         }
@@ -124,13 +166,18 @@ public class UIManager : MonoBehaviour
 
     public void LevelSelect()
     {
-        SceneMaster.instance.ChangeScene(SceneMaster.levelSelectScene);
+        SceneMaster.instance.ChangeScene(SceneMaster.mainMenuScene);
     }
 
     public void Profanity()
     {
         GameManager.instance.profanity = !GameManager.instance.profanity;
         //TODO: Update profanity UI
+
+        if (GameManager.instance.profanity)
+        {
+            SFXManager.instance.PlaySFX(Random.Range(25, 28));
+        }
 
         UpdateIcons();
     }
@@ -140,6 +187,9 @@ public class UIManager : MonoBehaviour
         pauseMenu.gameObject.SetActive(false);
         deathMenu.gameObject.SetActive(false);
         GameManager.instance.SpawnPlayer();
+        //print("call");
+
+        UpdateIcons();
     }
 
     public void Mute()

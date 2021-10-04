@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class BodyFunctions : MonoBehaviour
 {
@@ -46,16 +47,20 @@ public class BodyFunctions : MonoBehaviour
     public GameObject leftBlinder;
     public GameObject rightBlinder;
 
-    public SFXManager sfx;
+    //public SFXManager sfx;
 
     // Start is called before the first frame update
     void Start()
     {
-        airInLungs = lungCapacity;
-        CO2InLungs = 0;
+        ResetValues();
 
-        timeSinceLeftBlink = 0;
-        timeSinceRightBlink = 0;
+        if (!leftBlinder)
+        {
+            leftBlinder = GameObject.FindWithTag("CameraParent").transform.Find("LeftCamera").Find("Blinder").gameObject;
+            leftBlurVolume = GameObject.FindWithTag("CameraParent").transform.Find("LeftCamera").Find("LeftBlur").gameObject;
+            rightBlinder = GameObject.FindWithTag("CameraParent").transform.Find("RightCamera").Find("Blinder").gameObject;
+            rightBlurVolume = GameObject.FindWithTag("CameraParent").transform.Find("RightCamera").Find("RightBlur").gameObject;
+        }
     }
 
     void Awake()
@@ -73,7 +78,7 @@ public class BodyFunctions : MonoBehaviour
     void LateUpdate()
     // This needs to run after StenchSource or stench is always 0
     {
-        if (!GameManager.paused)
+        if (!GameManager.paused && !UIManager.instance.deathMenu.gameObject.activeInHierarchy && !(GameManager.instance.deathDelay > 0))
         {
             CheckInputs();
             UpdateQuantities();
@@ -153,11 +158,21 @@ public class BodyFunctions : MonoBehaviour
 
     void CheckCaps()
     {
+        /*
+        GameObject leftCamera = GameObject.FindWithTag("CameraParent").transform.Find("LeftCamera").gameObject;
+
+        if (leftCamera.GetComponent<Volume>().profile.TryGet<Vignette>(out var vignette))
+        {
+            vignette.intensity.overrideState = true;
+            vignette.intensity.value = airInLungs / lungCapacity;
+        }
+        */
+
         // TODO ADD warnings here
         if (airInLungs < warningAirFrac * lungCapacity)
         {
             int chokingIndex = Random.Range(9, 11);
-            sfx.PlaySFX(chokingIndex);
+            SFXManager.instance.PlaySFX(chokingIndex);
         }
 
         if (airInLungs < 0)
@@ -185,7 +200,7 @@ public class BodyFunctions : MonoBehaviour
             if (timeSinceBurpNeeded > 0)
             {
                 int hiccupIndex = Random.Range(12, 14);
-                sfx.PlaySFX(hiccupIndex);
+                SFXManager.instance.PlaySFX(hiccupIndex);
             }
         }
     }
@@ -266,7 +281,7 @@ public class BodyFunctions : MonoBehaviour
             if (timeSinceBurpNeeded > 0)
             {
                 int burpIndex = Random.Range(0, 2);
-                sfx.PlaySFX(burpIndex);
+                SFXManager.instance.PlaySFX(burpIndex);
                 timeSinceBurpNeeded = Random.Range(-burpMaxTimeBetween , -burpMinTimeBetween);
             }
             else
@@ -278,7 +293,7 @@ public class BodyFunctions : MonoBehaviour
         if (Input.GetButton("BreatheIn"))
         {
             int breatheInIndex = Random.Range(6, 8);
-            sfx.PlaySFX(breatheInIndex);
+            SFXManager.instance.PlaySFX(breatheInIndex);
             breathingState = 1;
         }
         else 
@@ -286,7 +301,7 @@ public class BodyFunctions : MonoBehaviour
             if (Input.GetButton("BreatheOut"))
             {
                 int breatheOutIndex = Random.Range(3, 5);
-                sfx.PlaySFX(breatheOutIndex);
+                SFXManager.instance.PlaySFX(breatheOutIndex);
                 breathingState = -1;
             }
             else
@@ -307,11 +322,26 @@ public class BodyFunctions : MonoBehaviour
         }
     }
 
+    public void ResetValues()
+    {
+        currentStenchLevel = 0;
+
+        airInLungs = lungCapacity;
+        CO2InLungs = 0;
+
+        timeSinceLeftBlink = 0;
+        timeSinceRightBlink = 0;
+
+        timeSinceBurpNeeded = -burpMaxTimeBetween;
+    }
+
     public void Die(string causeOfDeath)
     {
-        if (GetComponent<Player>())
+        //print("Died");
+        //print(causeOfDeath);
+        if (GetComponent<WalkingManager>())
         {
-            GetComponent<Player>().Die(causeOfDeath);
+            GetComponent<WalkingManager>().Die(causeOfDeath);
         }
     }
 }

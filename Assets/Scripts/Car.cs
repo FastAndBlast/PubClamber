@@ -77,7 +77,8 @@ public class Car : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            print("Hit by a car");
+            //print("Hit by a car");
+            SFXManager.instance.PlaySFX(Random.Range(17, 20));
             BodyFunctions.instance.Die("Hit by a car");
         }
     }
