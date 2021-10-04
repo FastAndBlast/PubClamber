@@ -307,7 +307,7 @@ public class BodyFunctions : MonoBehaviour
         }
     }
 
-    void Die(string causeOfDeath)
+    public void Die(string causeOfDeath)
     {
         if (GetComponent<Player>())
         {

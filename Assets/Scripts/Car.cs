@@ -73,6 +73,15 @@ public class Car : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            print("Hit by a car");
+            BodyFunctions.instance.Die("Hit by a car");
+        }
+    }
+
     private void TargetWaypoint(int n) 
     {
         currentTarget = road.waypoints[n];
