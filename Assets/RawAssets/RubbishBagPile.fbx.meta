@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 36d6dc302bd7fb7478ae27367ebb7d34
+guid: 60fdb147b0fdc7643b9555140dfda6ed
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: RoadBlackMat
-    second: {fileID: 2100000, guid: 682da07f7b80d184bbb6819aeca0f692, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: RoadSideWalkDarkerMat
-    second: {fileID: 2100000, guid: 7142d159fc8df80449e0b529a6762e18, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: RoadSideWalkMat
-    second: {fileID: 2100000, guid: 791af868dbb56af4383e0ff4203f9ace, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: RoadWhiteMat
-    second: {fileID: 2100000, guid: 9f7496fc114e3fd428f892abb4a972a2, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -93,7 +73,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
@@ -112,7 +92,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

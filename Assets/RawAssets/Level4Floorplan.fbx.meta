@@ -19,6 +19,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: RoadSideWalkMat
     second: {fileID: 2100000, guid: 791af868dbb56af4383e0ff4203f9ace, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoadWhiteMat
+    second: {fileID: 2100000, guid: 9f7496fc114e3fd428f892abb4a972a2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
