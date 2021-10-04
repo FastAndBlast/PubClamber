@@ -6,6 +6,9 @@ public class FootTrigger : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
+        GetComponentInParent<WalkingManager>().Collided();
+
+
         //Transform topLevelParent = other.gameObject.transform;
         //while (true)
         //{
@@ -23,7 +26,7 @@ public class FootTrigger : MonoBehaviour
         //if (!other.GetComponent<Rigidbody>() && topLevelParent != GetComponentInParent<WalkingManager>().transform)
         //{
         //GetComponentInParent<WalkingManager>().Collided(other.ClosestPoint(transform.position));
-            //GetComponentInParent<WalkingManager>().Stumble();
+        //GetComponentInParent<WalkingManager>().Stumble();
         //}
     }
 }

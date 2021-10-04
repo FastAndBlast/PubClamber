@@ -70,13 +70,16 @@ public class BodyFunctions : MonoBehaviour
     void LateUpdate()
     // This needs to run after StenchSource or stench is always 0
     {
-        CheckInputs();
-        UpdateQuantities();
-        CheckCaps();
-
-        if (blinkingEnabled)
+        if (!GameManager.paused)
         {
-            BlurEyes();
+            CheckInputs();
+            UpdateQuantities();
+            CheckCaps();
+
+            if (blinkingEnabled)
+            {
+                BlurEyes();
+            }
         }
     }
 
@@ -150,21 +153,21 @@ public class BodyFunctions : MonoBehaviour
         // TODO ADD warnings here
         if (airInLungs < 0)
         {
-            Die();
+            Die("Asphixiated to death");
             print("Asphixiated to death");
             return;
         }
 
         if (currentStenchLevel > stenchCap)
         {
-            Die();
+            Die("Passed out from stench");
             print("Passed out from stench");
             return;
         }
 
         if (timeSinceBurpNeeded > maxTimeSinceBurp)
         {
-            Die();
+            Die("Passed out from not burping");
             print("Passed out from not burping");
             return;
         }
@@ -281,8 +284,11 @@ public class BodyFunctions : MonoBehaviour
         }
     }
 
-    void Die()
+    void Die(string causeOfDeath)
     {
-        Destroy(this.gameObject);
+        if (GetComponent<Player>())
+        {
+            GetComponent<Player>().Die(causeOfDeath);
+        }
     }
 }

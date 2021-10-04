@@ -67,8 +67,8 @@ public class WalkingManager : MonoBehaviour
     float timeToRest;
 
     float stepLength;
-    float stepSpeed = 1f;
-    float shuffleSpeed = 0.5f;
+    public float stepSpeed = 1f;
+    public float shuffleSpeed = 0.5f;
 
     FootEnum lastFootMoved = FootEnum.Left;
 
@@ -114,6 +114,11 @@ public class WalkingManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.paused)
+        {
+            return;
+        }
+
         LookAt();
 
         Vector3 newTransformPosition = (left.worldPos + right.worldPos) / 2;
@@ -142,15 +147,21 @@ public class WalkingManager : MonoBehaviour
                 else
                 {
                     //lastFootMoved = FootEnum.Left;
-                    state = WalkingState.LeftMoving;
-                    stepLength = Vector3.Distance(leftFoot.transform.localPosition, left.forwardOffset);
+                    if (!CheckCollisions(left))
+                    {
+                        state = WalkingState.LeftMoving;
+                        stepLength = Vector3.Distance(leftFoot.transform.localPosition, left.forwardOffset);
+                    }
                 }
             }
             else if (state == WalkingState.Resting)
             {
                 //lastFootMoved = FootEnum.Left;
-                state = WalkingState.LeftMoving;
-                stepLength = Vector3.Distance(leftFoot.transform.localPosition, left.forwardOffset);
+                if (!CheckCollisions(left))
+                {
+                    state = WalkingState.LeftMoving;
+                    stepLength = Vector3.Distance(leftFoot.transform.localPosition, left.forwardOffset);
+                }
             }
         }
         if (Input.GetButtonDown("RightFoot"))
@@ -164,15 +175,21 @@ public class WalkingManager : MonoBehaviour
                 else
                 {
                     //lastFootMoved = FootEnum.Right;
-                    state = WalkingState.RightMoving;
-                    stepLength = Vector3.Distance(rightFoot.transform.localPosition, right.forwardOffset);
+                    if (!CheckCollisions(right))
+                    {
+                        state = WalkingState.RightMoving;
+                        stepLength = Vector3.Distance(rightFoot.transform.localPosition, right.forwardOffset);
+                    }
                 }
             }
             else if (state == WalkingState.Resting)
             {
                 //lastFootMoved = FootEnum.Right;
-                state = WalkingState.RightMoving;
-                stepLength = Vector3.Distance(rightFoot.transform.localPosition, right.forwardOffset);
+                if (!CheckCollisions(right))
+                {
+                    state = WalkingState.RightMoving;
+                    stepLength = Vector3.Distance(rightFoot.transform.localPosition, right.forwardOffset);
+                }
             }
         }
 
@@ -211,13 +228,28 @@ public class WalkingManager : MonoBehaviour
         }
         else if (state == WalkingState.LeftMoving)
         {
-            MoveFoot(left, left.forwardOffset, stepSpeed);
+            if (!CheckCollisions(left, Vector3.Distance(left.transform.localPosition, left.forwardOffset)))
+            {
+                MoveFoot(left, left.forwardOffset, stepSpeed);
+            }
+            else
+            {
+                state = WalkingState.Resting;
+            }
         }
         else if (state == WalkingState.RightMoving)
         {
             //rightFootWorldPos = rightFoot.TransformPoint(Vector3.Lerp(rightFoot.InverseTransformPoint(rightFootWorldPos), rightFoot.localPosition + rightFootForwardOffset, Time.deltaTime * 5));
             //print(Vector3.Distance(rightFoot.transform.localPosition, rightFootForwardOffset));
-            MoveFoot(right, right.forwardOffset, stepSpeed);
+            
+            if (!CheckCollisions(right, Vector3.Distance(right.transform.localPosition, right.forwardOffset)))
+            {
+                MoveFoot(right, right.forwardOffset, stepSpeed);
+            }
+            else
+            {
+                state = WalkingState.Resting;
+            }
         }
     }
         
@@ -239,7 +271,7 @@ public class WalkingManager : MonoBehaviour
         //print(foot.transform.GetComponent<Rigidbody>());
         //foot.transform.GetComponent<Rigidbody>().MovePosition(newFootPosition);
 
-        //foot.transform.localPosition = Vector3.MoveTowards(foot.transform.localPosition, target, Time.deltaTime * speed);
+        foot.transform.localPosition = Vector3.MoveTowards(foot.transform.localPosition, target, Time.deltaTime * speed);
 
         
 
@@ -247,11 +279,11 @@ public class WalkingManager : MonoBehaviour
 
         //print(rightFoot.localPosition + rightFootForwardOffset);
 
-        //disp = Vector3.Distance(foot.transform.localPosition, target);
-        disp = Vector3.Distance(foot.transform.position, foot.transform.TransformPoint(target));
+        disp = Vector3.Distance(foot.transform.localPosition, target);
+        //disp = Vector3.Distance(foot.transform.position, foot.transform.TransformPoint(target));
 
-        print(name + " | " + foot.transform.position.ToString());
-        print(foot.transform.TransformPoint(target));
+        //print(name + " | " + foot.transform.position.ToString());
+        //print(foot.transform.TransformPoint(target));
 
         left.worldPos = left.transform.position;
         right.worldPos = right.transform.position;
@@ -263,8 +295,9 @@ public class WalkingManager : MonoBehaviour
             lift = Mathf.Clamp(-disp * (disp - stepLength) / (stepLength * stepLength / 4) * liftHeight - 0.1f, 0, 100);
         }
 
-        Vector3 footMotion;
 
+        /*
+        Vector3 footMotion;
         if (Time.deltaTime * speed > disp)
         {
             footMotion = foot.transform.position - foot.transform.TransformPoint(target);
@@ -273,21 +306,24 @@ public class WalkingManager : MonoBehaviour
         {
             footMotion = (foot.transform.TransformPoint(target) - foot.transform.position).normalized * Time.deltaTime * speed;
         }
+        */
 
         //footMotion = //foot.transform.TransformPoint(Vector3.MoveTowards(foot.transform.localPosition, target, Time.deltaTime * speed));
         //foot.transform.TransformPoint(target - foot.transform.localPosition).normalized * Time.deltaTime * speed; 
         //Vector3.MoveTowards(foot.transform.localPosition, target, Time.deltaTime * speed) - foot.transform.localPosition; //foot.transform.TransformPoint(
         //    (foot.transform.TransformPoint(target) - foot.transform.position).normalized * Time.deltaTime * speed;
 
+        //foot.transform.localPosition = Vector3.MoveTowards(foot.transform.localPosition, target, Time.deltaTime * speed);
 
-        foot.transform.GetComponent<CharacterController>().Move(footMotion); //+ new Vector3(0, lift - foot.transform.position.y, 0));
+
+        //foot.transform.GetComponent<CharacterController>().Move(footMotion); //+ new Vector3(0, lift - foot.transform.position.y, 0));
         //print(lift);
 
-        print(disp);
+        //print(disp);
 
 
 
-        //foot.transform.localPosition += new Vector3(0, lift, 0);
+        foot.transform.localPosition += new Vector3(0, lift, 0);
 
         if (disp < endDistance )//|| Vector3.Distance(foot.transform.position, transform.position) >= Vector3.Distance(foot.transform.position, foot.transform.TransformPoint(foot.forwardOffset)))//(Vector3.Distance(rightFoot.InverseTransformPoint(rightFootWorldPos), rightFoot.localPosition + rightFootForwardOffset) < endDistance)
         {
@@ -298,6 +334,26 @@ public class WalkingManager : MonoBehaviour
             //print(lastFootMoved);
         }
     }
+
+    public bool CheckCollisions(Foot foot, float magnitude=1)
+    {
+        RaycastHit hit;
+        Vector3 disp = foot.transform.forward * magnitude;
+        bool collide = Physics.SphereCast(foot.transform.position, 0.25f, disp.normalized, out hit, disp.magnitude);
+
+        Debug.DrawLine(foot.transform.position, foot.transform.position + disp, Color.blue);
+        //Gizmos.DrawWireSphere(foot.transform.position + disp, 2);
+
+        if (collide)
+        {
+            //state = WalkingState.Resting;
+            return true;
+        }
+
+
+        return false;
+    }
+
 
     public void LookAt()
     {
@@ -327,6 +383,11 @@ public class WalkingManager : MonoBehaviour
 
         Vector3 targetRotation = point - transform.position; //lookPosition - transform.position;
 
+        if (Vector3.Distance(transform.forward, targetRotation) > 0.2f)
+        {
+            timeToRest -= Time.deltaTime * 3;
+        }
+
         transform.forward = Vector3.MoveTowards(transform.forward, targetRotation, Time.deltaTime * 2);
 
         if (timeToNudge > 0)
@@ -343,16 +404,19 @@ public class WalkingManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.red;
         if (left != null)
         {
             //left.transform.TransformDirection(Vector3.forward);
             //Gizmos.DrawLine( );
             Gizmos.DrawLine(left.transform.position, left.transform.TransformPoint(left.forwardOffset));
-            
+            Gizmos.DrawWireSphere(left.transform.TransformPoint(left.forwardOffset), 0.2f);
+            //Debug.DrawLine(foot.transform.position, foot.transform.position + disp, Color.blue);
         }
         if (right != null)
         {
             Gizmos.DrawLine(right.transform.position, right.transform.TransformPoint(right.forwardOffset));
+            Gizmos.DrawWireSphere(right.transform.TransformPoint(right.forwardOffset), 0.2f);
         }
         
 
@@ -375,8 +439,12 @@ public class WalkingManager : MonoBehaviour
         }
     }
 
-    public void Collided(Vector3 collisionPoint)
+    public void Collided() //Vector3 collisionPoint)
     {
+        //state = WalkingState.Resting;
+
+
+        /*
         if (state == WalkingState.LeftMoving)
         {
             left.transform.position -= (transform.position - collisionPoint).normalized * 0.5f;
@@ -387,8 +455,8 @@ public class WalkingManager : MonoBehaviour
         }
 
         state = WalkingState.Resting;
-
-        print("Collided");
+        */
+        //print("Collided");
     }
 
     public void Stumble()
