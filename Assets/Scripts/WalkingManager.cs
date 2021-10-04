@@ -117,8 +117,15 @@ public class WalkingManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.paused || !on)
+        if (GameManager.paused)
         {
+            return;
+        }
+
+        if (!on)
+        {
+            left.transform.position = ragDoll.body.Find("leftTopLeg").Find("leftKneeLeg").Find("leftFoot").position + Vector3.up * 0.2f;
+            right.transform.position = ragDoll.body.Find("rightTopLeg").Find("rightKneeLeg").Find("rightFoot").position + Vector3.up * 0.2f;
             return;
         }
 
@@ -479,8 +486,16 @@ public class WalkingManager : MonoBehaviour
     {
         print("Stumbled");
         stumbleTime = stumbleTimeMax;
-        ragDoll.Force(100 * transform.forward, BodyPart.Body);
-        ragDoll.Force(200 * transform.forward, BodyPart.Arms);
+        if (ragDoll)
+        {
+            ragDoll.Force(100 * transform.forward, BodyPart.Body);
+            ragDoll.Force(200 * transform.forward, BodyPart.Arms);
+        }
+        else
+        {
+            Debug.LogWarning("No RagDollParts");
+        }
+        
     }
 
     public void Die(string causeOfDeath)

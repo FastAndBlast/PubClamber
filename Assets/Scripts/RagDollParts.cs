@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
 
 public enum BodyPart { Legs, Arms, Body, Head };
 
@@ -25,6 +24,8 @@ public class RagDollParts : MonoBehaviour
     public bool headDisabled;
 
     //bool[] beforePause;
+
+    bool changed = false;
 
     private void Start()
     {
@@ -51,10 +52,12 @@ public class RagDollParts : MonoBehaviour
         {
             //beforePause = new bool[4] { legsDisabled, armsDisabled, bodyDisabled, headDisabled };
             Disable(true, true, true, true, false);
+            changed = true;
         }
-        else
+        else if (changed)
         {
             Enable(!legsDisabled, !armsDisabled, !bodyDisabled, !headDisabled, false);
+            changed = false;
         }
     }
 
@@ -257,13 +260,13 @@ public class RagDollParts : MonoBehaviour
     {
         Enable(true, true, true, true);
         body.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        Destroy(rig.GetComponent<Rig>());
         
+        /*
         foreach (TwoBoneIKConstraint bone in rig.GetComponentsInChildren<TwoBoneIKConstraint>())
         {
             Destroy(bone);
         }
-        
+        */
         //Destroy();
     }
 

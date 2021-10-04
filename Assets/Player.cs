@@ -8,7 +8,4 @@ public class Player : MonoBehaviour
     {
         GameManager.instance.PlayerDeath(causeOfDeath);
     }
-
-
-
 }

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public List<Sprite> buttonIcons;
+
     public void Play()
     {
         SceneMaster.instance.ChangeScene(SceneMaster.firstLevelScene);
@@ -21,18 +24,24 @@ public class MainMenuManager : MonoBehaviour
 
     public void Mute()
     {
-        if (AudioListener.volume > 0)
-        {
-            AudioListener.volume = 0f;
-        }
-        else
-        {
-            AudioListener.volume = 1f;
-        }
+        GameManager.instance.Mute();
+
+        Transform canvas = GameObject.FindWithTag("MainCanvas").transform;
+
+        int mutedIndex = GameManager.muted ? 0 : 1;
+
+        canvas.GetChild(0).Find("Mute").GetComponent<Image>().sprite = buttonIcons[mutedIndex];
     }
 
     public void Profanity()
     {
         GameManager.instance.profanity = !GameManager.instance.profanity;
+
+        Transform canvas = GameObject.FindWithTag("MainCanvas").transform;
+
+        int profanityIndex = GameManager.instance.profanity ? 2 : 3;
+
+        canvas.GetChild(0).Find("Profanity").GetComponent<Image>().sprite = buttonIcons[profanityIndex];
+        
     }
 }

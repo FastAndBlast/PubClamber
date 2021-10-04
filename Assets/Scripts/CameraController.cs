@@ -6,6 +6,9 @@ public class CameraController : MonoBehaviour
 {
     public Transform target;
 
+    public Vector3 signRotation;
+    public Vector3 signPositionOffset;
+
     //public float speed;
     public float inverseSpeed = 1;
 

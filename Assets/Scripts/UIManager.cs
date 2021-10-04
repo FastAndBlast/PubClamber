@@ -14,7 +14,8 @@ public class UIManager : MonoBehaviour
 
     public List<Sprite> buttonIcons;
 
-    public bool muted
+
+    /*public bool muted
     {
         get
         {
@@ -31,6 +32,13 @@ public class UIManager : MonoBehaviour
                 AudioListener.volume = 1;
             }
         }
+    }*/
+
+    public static UIManager instance;
+
+    private void Awake()
+    {
+        instance = this;
     }
 
     private void Start()
@@ -78,7 +86,7 @@ public class UIManager : MonoBehaviour
         }
 
         int profanityIndex = GameManager.instance.profanity ? 2 : 3;
-        int mutedIndex = muted ? 0 : 1;
+        int mutedIndex = GameManager.muted ? 0 : 1;
 
         pauseMenu.Find("ButtonPanel").Find("Profanity").GetComponent<Image>().sprite = buttonIcons[profanityIndex];
         pauseMenu.Find("ButtonPanel").Find("Mute").GetComponent<Image>().sprite = buttonIcons[mutedIndex];
@@ -136,7 +144,7 @@ public class UIManager : MonoBehaviour
 
     public void Mute()
     {
-        muted = !muted;
+        GameManager.instance.Mute();
         UpdateIcons();
     }
 

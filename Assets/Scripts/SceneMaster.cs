@@ -20,6 +20,6 @@ public class SceneMaster : MonoBehaviour
 
     public void ChangeScene(int newScene)
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneAt(newScene));
+        SceneManager.LoadScene(newScene);
     }
 }

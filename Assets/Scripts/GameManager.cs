@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     //public Transform spawnPoint;
 
+    public static bool muted;
+
     private void Awake()
     {
         instance = this;
@@ -63,7 +65,26 @@ public class GameManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SpawnPlayer();
+        if (scene.buildIndex  > 1 && scene.buildIndex < 7)
+        {
+            SpawnPlayer();
+        }
+
+        AudioListener.volume = muted ? 0 : 1;
+    }
+
+    public void Mute()
+    {
+        muted = !muted;
+
+        if (muted)
+        {
+            AudioListener.volume = 0;
+        }
+        else if (muted)
+        {
+            AudioListener.volume = 1;
+        }
     }
 
     public void Pause()
