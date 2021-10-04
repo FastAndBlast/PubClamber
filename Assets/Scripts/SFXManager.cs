@@ -11,6 +11,8 @@ public class SFXManager : MonoBehaviour
 
     public static SFXManager instance;
 
+    public List<int> playingClips;
+
     public void Awake()
     {
         instance = this;
@@ -18,6 +20,16 @@ public class SFXManager : MonoBehaviour
 
     public void PlaySFX(int index)
     {
+        foreach (int x in playingClips)
+        {
+            if (x == index)
+            {
+                return;
+            }
+        }
+
+        playingClips.Add(index);
+
         GameObject sourceInstance = Instantiate(audioSourcePrefab);
 
         sourceInstance.GetComponent<AudioSource>().clip = clips[index];
@@ -25,6 +37,8 @@ public class SFXManager : MonoBehaviour
         sourceInstance.GetComponent<DestroyTimer>().time = clips[index].length + 0.1f;
 
         sourceInstance.GetComponent<AudioSource>().Play();
+
+        sourceInstance.GetComponent<AudioObject>().index = index;
 
         sourceInstance.transform.parent = Camera.main.transform;
         sourceInstance.transform.localPosition = Vector3.zero;

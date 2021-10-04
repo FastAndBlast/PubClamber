@@ -18,6 +18,7 @@ public class BodyFunctions : MonoBehaviour
     public float breathOutRate;
     private float airInLungs;
     private float CO2InLungs;
+    public float warningAirFrac;
     public float easyModeCoeff;
     private int breathingState; // -1 out 0 none 1 in
 
@@ -44,6 +45,8 @@ public class BodyFunctions : MonoBehaviour
     public GameObject leftBlurVolume;
     public GameObject leftBlinder;
     public GameObject rightBlinder;
+
+    public SFXManager sfx;
 
     // Start is called before the first frame update
     void Start()
@@ -151,6 +154,12 @@ public class BodyFunctions : MonoBehaviour
     void CheckCaps()
     {
         // TODO ADD warnings here
+        if (airInLungs < warningAirFrac * lungCapacity)
+        {
+            int chokingIndex = Random.Range(9, 11);
+            sfx.PlaySFX(chokingIndex);
+        }
+
         if (airInLungs < 0)
         {
             Die("Asphixiated to death");
@@ -170,6 +179,14 @@ public class BodyFunctions : MonoBehaviour
             Die("Passed out from not burping");
             print("Passed out from not burping");
             return;
+        }
+        else
+        {
+            if (timeSinceBurpNeeded > 0)
+            {
+                int hiccupIndex = Random.Range(12, 14);
+                sfx.PlaySFX(hiccupIndex);
+            }
         }
     }
 
@@ -248,6 +265,8 @@ public class BodyFunctions : MonoBehaviour
         {
             if (timeSinceBurpNeeded > 0)
             {
+                int burpIndex = Random.Range(0, 2);
+                sfx.PlaySFX(burpIndex);
                 timeSinceBurpNeeded = Random.Range(-burpMaxTimeBetween , -burpMinTimeBetween);
             }
             else
@@ -258,12 +277,16 @@ public class BodyFunctions : MonoBehaviour
 
         if (Input.GetButton("BreatheIn"))
         {
+            int breatheInIndex = Random.Range(6, 8);
+            sfx.PlaySFX(breatheInIndex);
             breathingState = 1;
         }
         else 
         {
             if (Input.GetButton("BreatheOut"))
             {
+                int breatheOutIndex = Random.Range(3, 5);
+                sfx.PlaySFX(breatheOutIndex);
                 breathingState = -1;
             }
             else

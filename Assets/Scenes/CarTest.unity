@@ -434,7 +434,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 28.312397
+  field of view: 28.329857
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1043,20 +1043,21 @@ MonoBehaviour:
   airConsumptionRate: 2
   airIntakeRate: 5
   breathOutRate: 10
+  warningAirFrac: 0.3
   easyModeCoeff: 1.5
   stenchCap: 30
   currentStenchLevel: 0
   stenchDecay: 1
   nearbyStench: 0
-  heldCoefficient: 0
+  heldCoefficient: 0.5
   burpMaxTimeBetween: 15
   burpMinTimeBetween: 5
   timeSinceBurpNeeded: 0
   maxTimeSinceBurp: 2
   blinkingEnabled: 1
-  breathingEnabled: 0
+  breathingEnabled: 1
   stenchEnabled: 1
-  burpingEnabled: 0
+  burpingEnabled: 1
   breathingEasyMode: 0
   blinkingEasyMode: 0
   noseHeld: 0
@@ -1064,6 +1065,68 @@ MonoBehaviour:
   leftBlurVolume: {fileID: 1451210833}
   leftBlinder: {fileID: 1259843280}
   rightBlinder: {fileID: 818343862}
+  sfx: {fileID: 881753687}
+--- !u!1 &881753686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 881753688}
+  - component: {fileID: 881753687}
+  m_Layer: 0
+  m_Name: ManagerHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &881753687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881753686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4588a9cf81df67c41a0bee2696f69ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 5b2ed1395ef826647b36a586b03a7a16, type: 3}
+  - {fileID: 8300000, guid: cfd3df6d57084684aa92a55d1c90d5bf, type: 3}
+  - {fileID: 8300000, guid: 3293ddbf5e2243042843f2cd0ef0a2d9, type: 3}
+  - {fileID: 8300000, guid: ecf4bd9f1c7853e44809af2378406483, type: 3}
+  - {fileID: 8300000, guid: 8ef09fdbebb1f8840959595d62d39788, type: 3}
+  - {fileID: 8300000, guid: f585e7293a39ea149885fe812c45f0b9, type: 3}
+  - {fileID: 8300000, guid: 9ed2f67f46cf50444b6adb8edb78cf3a, type: 3}
+  - {fileID: 8300000, guid: 2a44213512ebc18419e34eb7633a89e3, type: 3}
+  - {fileID: 8300000, guid: d3589eebcf4baad4db01fbe93b2f8620, type: 3}
+  - {fileID: 8300000, guid: 59aa47083203fe84f945c50c0e17093a, type: 3}
+  - {fileID: 8300000, guid: beb9f1bd2c2649b419a46a6002e9ed51, type: 3}
+  - {fileID: 8300000, guid: a1c43a0e9cac6f5418030de3000633c0, type: 3}
+  - {fileID: 8300000, guid: 9db5378e4f56ace4e8f0fcf903f92ffc, type: 3}
+  - {fileID: 8300000, guid: 9ba656ce73c17b643abd063e7df5f5d4, type: 3}
+  - {fileID: 8300000, guid: 3e1a2a403ce072b4ea9930fa335d7589, type: 3}
+  audioSourcePrefab: {fileID: 6080823659866355401, guid: 626f69452638a3740921ad15afcbdd40, type: 3}
+  playingClips: 
+--- !u!4 &881753688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881753686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.2210355, y: -50.697426, z: 45.85189}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &896166129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1521,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 28.312397
+  field of view: 28.329857
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
