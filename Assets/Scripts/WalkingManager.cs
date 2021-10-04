@@ -13,7 +13,7 @@ public class Foot
     {
         transform = footTransform;
         worldPos = footTransform.position;
-        restingPosition = footTransform.position;
+        restingPosition = footTransform.localPosition;
         forwardOffset = offset;
         state = newState;
     }
@@ -40,9 +40,6 @@ public class WalkingManager : MonoBehaviour
     //Vector3 leftFootWorldPos;
     //Vector3 rightFootWorldPos;
 
-    [SerializeField]
-    Vector3 initialMousePos;
-
     public Foot left;
     public Foot right;
 
@@ -67,7 +64,7 @@ public class WalkingManager : MonoBehaviour
     float timeToRest;
 
     float stepLength;
-    public float stepSpeed = 1f;
+    public float stepSpeed = 1.25f;
     public float shuffleSpeed = 0.5f;
 
     FootEnum lastFootMoved = FootEnum.Left;
@@ -77,8 +74,8 @@ public class WalkingManager : MonoBehaviour
     float timeToNudgeMax = 1.5f;
     float timeToNudge;
 
-    [SerializeField]
-    Transform spinePart;
+    //[SerializeField]
+    public Transform spinePart;
 
     float spineBaseAngle;
     public float spineStumbleAngle = 40;
@@ -124,8 +121,11 @@ public class WalkingManager : MonoBehaviour
 
         if (!on)
         {
-            left.transform.position = ragDoll.body.Find("leftTopLeg").Find("leftKneeLeg").Find("leftFoot").position + Vector3.up * 0.2f;
-            right.transform.position = ragDoll.body.Find("rightTopLeg").Find("rightKneeLeg").Find("rightFoot").position + Vector3.up * 0.2f;
+            Vector3 leftDir = (ragDoll.body.position - ragDoll.body.Find("leftTopLeg").Find("leftKneeLeg").Find("leftFoot").position).normalized;
+            Vector3 rightDir = (ragDoll.body.position - ragDoll.body.Find("rightTopLeg").Find("rightKneeLeg").Find("rightFoot").position).normalized;
+
+            left.transform.position = ragDoll.body.Find("leftTopLeg").Find("leftKneeLeg").Find("leftFoot").position + Vector3.up * 0.2f + leftDir * 0.2f;
+            right.transform.position = ragDoll.body.Find("rightTopLeg").Find("rightKneeLeg").Find("rightFoot").position + Vector3.up * 0.2f + rightDir * 0.2f;
             return;
         }
 
@@ -421,7 +421,7 @@ public class WalkingManager : MonoBehaviour
         {
             //ragDoll.Force(20f * transform.forward, BodyPart.Body);
             Stumble();
-            timeToNudge = timeToNudgeMax;
+            timeToNudge = timeToNudgeMax * Random.Range(1, 3);
         }
     }
 
@@ -484,12 +484,16 @@ public class WalkingManager : MonoBehaviour
 
     public void Stumble()
     {
-        print("Stumbled");
+        //print("Stumbled");
         stumbleTime = stumbleTimeMax;
         if (ragDoll)
         {
-            ragDoll.Force(100 * transform.forward, BodyPart.Body);
-            ragDoll.Force(200 * transform.forward, BodyPart.Arms);
+            Vector3 dir = new Vector3(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
+
+            //print(dir);
+
+            ragDoll.Force(100 * dir.normalized, BodyPart.Body);
+            ragDoll.Force(200 * dir.normalized, BodyPart.Arms);
         }
         else
         {

@@ -3,17 +3,17 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.Animations.Rigging;
 
-public class AddValuesWindow : EditorWindow
+public class CopyValuesWindow : EditorWindow
 {
 	//public string importCharacterName = "CharacterEXP2";
 
 	GameObject copyFrom;
 	GameObject copyTo;
 
-	[MenuItem("Window/AddValuesWindow")]
+	[MenuItem("Window/CopyValuesWindow")]
 	public static void ShowWindow()
 	{
-		GetWindow<AddValuesWindow>("AddValuesWindow");
+		GetWindow<CopyValuesWindow>("CopyValuesWindow");
 	}
 
 	void OnGUI()
@@ -63,6 +63,18 @@ public class AddValuesWindow : EditorWindow
 		}
 		*/
 
+		WalkingManager walkingManager = copyTo.GetComponent<WalkingManager>();
+
+		if (!walkingManager)
+        {
+			walkingManager = copyTo.AddComponent<WalkingManager>();
+        }
+
+		walkingManager.leftFoot = ExtensiveFind(copyTo.transform, "LeftLegTarget").transform;
+		walkingManager.rightFoot = ExtensiveFind(copyTo.transform, "RightLegTarget").transform;
+
+		walkingManager.spinePart = ExtensiveFind(copyTo.transform, "spine.001").transform;
+
 		RagDollParts ragDollParts = copyTo.GetComponent<RagDollParts>();
 
 		if (!ragDollParts)
@@ -74,7 +86,7 @@ public class AddValuesWindow : EditorWindow
 			ExtensiveFind(copyTo.transform, "leftTopLeg"),
 			ExtensiveFind(copyTo.transform, "leftKneeLeg"),
 			ExtensiveFind(copyTo.transform, "rightTopLeg"),
-			ExtensiveFind(copyTo.transform, "leftKneeLeg")
+			ExtensiveFind(copyTo.transform, "rightKneeLeg")
 		};
 
 		ragDollParts.armGameObjects = new List<GameObject>() {
@@ -89,11 +101,11 @@ public class AddValuesWindow : EditorWindow
 			ExtensiveFind(copyTo.transform, "spine")
 		};
 
-		ragDollParts.bodyGameObjects = new List<GameObject>() {
+		ragDollParts.headGameObjects = new List<GameObject>() {
 			ExtensiveFind(copyTo.transform, "spine.006")
 		};
 
-		ragDollParts.body = ExtensiveFind(copyTo.transform, "spine.006").transform;
+		ragDollParts.body = ExtensiveFind(copyTo.transform, "spine").transform;
 
 		ragDollParts.legsDisabled = true;
 
@@ -104,8 +116,8 @@ public class AddValuesWindow : EditorWindow
 			return;
         }
 
-		Debug.Log("First: " + copyFrom.name);
-		Debug.Log("Second: " + copyTo.name);
+		//Debug.Log("First: " + copyFrom.name);
+		//Debug.Log("Second: " + copyTo.name);
 
 		GameObject A = ExtensiveFind(copyFrom.transform, "spine");
 		GameObject B = ExtensiveFind(copyTo.transform, "spine");
@@ -127,7 +139,7 @@ public class AddValuesWindow : EditorWindow
 		B = ExtensiveFind(copyTo.transform, "spine.006");
 
 		CopyRigidBodies(A, B);
-		CopyBoxColliders(A, B);
+		CopySphereColliders(A, B);
 		CopyCharacterJoints(A, B, C);
 
 		A = ExtensiveFind(copyFrom.transform, "upper_arm.R");
@@ -179,9 +191,6 @@ public class AddValuesWindow : EditorWindow
 
 	void CopyRigidBodies(GameObject A, GameObject B)
     {
-		Debug.Log("A: " + A.name);
-		Debug.Log("B: " + B.name);
-
 		Rigidbody componentA = A.GetComponent<Rigidbody>();
 
 		if (!componentA)
@@ -207,9 +216,6 @@ public class AddValuesWindow : EditorWindow
 
 	void CopyCharacterJoints(GameObject A, GameObject B, GameObject C=null)
 	{
-		Debug.Log("A: " + A.name);
-		Debug.Log("B: " + B.name);
-
 		CharacterJoint componentA = A.GetComponent<CharacterJoint>();
 
 		if (!componentA)

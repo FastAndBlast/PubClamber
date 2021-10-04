@@ -16,7 +16,7 @@ public class RagDollParts : MonoBehaviour
 
     public Transform body;
 
-    public Transform rig;
+    //public Transform rig;
 
     public bool legsDisabled;
     public bool armsDisabled;
