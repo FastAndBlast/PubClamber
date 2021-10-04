@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public enum BodyPart { Legs, Arms, Body, Head };
 
@@ -13,6 +14,10 @@ public class RagDollParts : MonoBehaviour
     public List<GameObject> armGameObjects;
     public List<GameObject> bodyGameObjects;
     public List<GameObject> headGameObjects;
+
+    public Transform body;
+
+    public Transform rig;
 
     public bool legsDisabled;
     public bool armsDisabled;
@@ -169,7 +174,7 @@ public class RagDollParts : MonoBehaviour
         */
     }
 
-    private void Enable(bool legs = false, bool arms = false, bool body = false, bool head = false, bool commit = true)
+    public void Enable(bool legs = false, bool arms = false, bool body = false, bool head = false, bool commit = true)
     {
         if (legs)
         {
@@ -246,6 +251,20 @@ public class RagDollParts : MonoBehaviour
                 headDisabled = !head;
             }
         }
+    }
+
+    public void Flop()
+    {
+        Enable(true, true, true, true);
+        body.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        Destroy(rig.GetComponent<Rig>());
+        
+        foreach (TwoBoneIKConstraint bone in rig.GetComponentsInChildren<TwoBoneIKConstraint>())
+        {
+            Destroy(bone);
+        }
+        
+        //Destroy();
     }
 
 }

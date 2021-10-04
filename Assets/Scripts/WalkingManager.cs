@@ -85,7 +85,10 @@ public class WalkingManager : MonoBehaviour
 
     float stumbleTimeMax = 1.5f;
     float stumbleTime = 0;
-    
+
+    bool shuffling = false;
+
+    public bool on = true;
 
     public void Start()
     {
@@ -114,7 +117,7 @@ public class WalkingManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.paused)
+        if (GameManager.paused || !on)
         {
             return;
         }
@@ -131,9 +134,10 @@ public class WalkingManager : MonoBehaviour
 
         StumbleUpdate();
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.U))
         {
-            Stumble();
+            //Stumble();
+            Die("Stumbled into a concussion");
         }
 
         if (Input.GetButtonDown("LeftFoot"))
@@ -142,13 +146,17 @@ public class WalkingManager : MonoBehaviour
             {
                 if (Vector3.Distance(left.worldPos, transform.position + left.forwardOffset) > stumbleDistance)
                 {
-                    //Stumble
+                    if (!shuffling)
+                    {
+                        Die("Stumbled into a concussion");
+                    }
                 }
                 else
                 {
                     //lastFootMoved = FootEnum.Left;
                     if (!CheckCollisions(left))
                     {
+                        shuffling = false;
                         state = WalkingState.LeftMoving;
                         stepLength = Vector3.Distance(leftFoot.transform.localPosition, left.forwardOffset);
                     }
@@ -159,6 +167,7 @@ public class WalkingManager : MonoBehaviour
                 //lastFootMoved = FootEnum.Left;
                 if (!CheckCollisions(left))
                 {
+                    shuffling = false;
                     state = WalkingState.LeftMoving;
                     stepLength = Vector3.Distance(leftFoot.transform.localPosition, left.forwardOffset);
                 }
@@ -170,13 +179,17 @@ public class WalkingManager : MonoBehaviour
             {
                 if (Vector3.Distance(left.worldPos, transform.position + left.forwardOffset) > stumbleDistance)
                 {
-                    //Stumble
+                    if (!shuffling)
+                    {
+                        Die("Stumbled into a concussion");
+                    }
                 }
                 else
                 {
                     //lastFootMoved = FootEnum.Right;
                     if (!CheckCollisions(right))
                     {
+                        shuffling = false;
                         state = WalkingState.RightMoving;
                         stepLength = Vector3.Distance(rightFoot.transform.localPosition, right.forwardOffset);
                     }
@@ -187,6 +200,7 @@ public class WalkingManager : MonoBehaviour
                 //lastFootMoved = FootEnum.Right;
                 if (!CheckCollisions(right))
                 {
+                    shuffling = false;
                     state = WalkingState.RightMoving;
                     stepLength = Vector3.Distance(rightFoot.transform.localPosition, right.forwardOffset);
                 }
@@ -216,6 +230,7 @@ public class WalkingManager : MonoBehaviour
             else
             {
                 //Drag foot to rest
+                shuffling = true;
                 if (lastFootMoved == FootEnum.Left)
                 {
                     MoveFoot(right, right.restingPosition, shuffleSpeed);
@@ -397,7 +412,8 @@ public class WalkingManager : MonoBehaviour
         }
         else
         {
-            ragDoll.Force(20f * transform.forward, BodyPart.Body);
+            //ragDoll.Force(20f * transform.forward, BodyPart.Body);
+            Stumble();
             timeToNudge = timeToNudgeMax;
         }
     }
@@ -465,6 +481,19 @@ public class WalkingManager : MonoBehaviour
         stumbleTime = stumbleTimeMax;
         ragDoll.Force(100 * transform.forward, BodyPart.Body);
         ragDoll.Force(200 * transform.forward, BodyPart.Arms);
+    }
+
+    public void Die(string causeOfDeath)
+    {
+        //TODO: ragdoll
+        on = false;
+
+        ragDoll.Flop();
+
+        if (GameManager.instance)
+        {
+            //GameManager.instance.PlayerDeath(causeOfDeath);
+        }
     }
 
     /*

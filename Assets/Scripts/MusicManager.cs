@@ -19,10 +19,7 @@ public class MusicManager : MonoBehaviour
         //start is 5 seconds long
         //play 4 seconds before the previous
         //loops are ~40 seconds long
-
         instance = this;
-
-
     }
 
     public void Start()

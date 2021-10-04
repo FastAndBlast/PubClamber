@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
     {
         Transform canvas = GameObject.FindWithTag("MainCanvas").transform;
         pauseMenu = canvas.Find("PauseMenu");
-        pauseMenu = canvas.Find("DeathMenu");
+        deathMenu = canvas.Find("DeathMenu");
         darkPanel = canvas.Find("DarkPanel");
 
         //Update Profanity UI & Mute UI
@@ -68,18 +68,49 @@ public class UIManager : MonoBehaviour
 
     public void UpdateIcons()
     {
+        if (paused || deathMenu.gameObject.activeSelf)
+        {
+            darkPanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            darkPanel.gameObject.SetActive(false);
+        }
+
         int profanityIndex = GameManager.instance.profanity ? 2 : 3;
         int mutedIndex = muted ? 0 : 1;
 
-        if (pauseMenu.gameObject.activeSelf)
+        pauseMenu.Find("ButtonPanel").Find("Profanity").GetComponent<Image>().sprite = buttonIcons[profanityIndex];
+        pauseMenu.Find("ButtonPanel").Find("Mute").GetComponent<Image>().sprite = buttonIcons[mutedIndex];
+        deathMenu.Find("ButtonPanel").Find("Profanity").GetComponent<Image>().sprite = buttonIcons[profanityIndex];
+        deathMenu.Find("ButtonPanel").Find("Mute").GetComponent<Image>().sprite = buttonIcons[mutedIndex];
+
+        int x = 0;
+        foreach (Transform helpTransform in pauseMenu.Find("HelpPanel"))
         {
-            pauseMenu.Find("ButtonPanel").Find("Profanity").GetComponent<Image>().sprite = buttonIcons[profanityIndex];
-            pauseMenu.Find("ButtonPanel").Find("Mute").GetComponent<Image>().sprite = buttonIcons[mutedIndex];
+            if (x == GameManager.instance.level - 1)
+            {
+                helpTransform.gameObject.SetActive(true);
+            }
+            else
+            {
+                helpTransform.gameObject.SetActive(false);
+            }
+            x++;
         }
-        else if (deathMenu.gameObject.activeSelf)
+
+        x = 0;
+        foreach (Transform helpTransform in deathMenu.Find("HelpPanel"))
         {
-            deathMenu.Find("ButtonPanel").Find("Profanity").GetComponent<Image>().sprite = buttonIcons[profanityIndex];
-            deathMenu.Find("ButtonPanel").Find("Mute").GetComponent<Image>().sprite = buttonIcons[mutedIndex];
+            if (x == GameManager.instance.level - 1)
+            {
+                helpTransform.gameObject.SetActive(true);
+            }
+            else
+            {
+                helpTransform.gameObject.SetActive(false);
+            }
+            x++;
         }
     }
 
@@ -98,14 +129,8 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-        if (pauseMenu.gameObject.activeSelf)
-        {
-            pauseMenu.gameObject.SetActive(false);
-        }
-        else if (deathMenu.gameObject.activeSelf)
-        {
-            deathMenu.gameObject.SetActive(false);
-        }
+        pauseMenu.gameObject.SetActive(false);
+        deathMenu.gameObject.SetActive(false);
         GameManager.instance.SpawnPlayer();
     }
 
