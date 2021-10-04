@@ -3400,11 +3400,11 @@ MonoBehaviour:
   burpMinTimeBetween: 10
   timeSinceBurpNeeded: 0
   maxTimeSinceBurp: 5
-  blinkingEnabled: 1
-  breathingEnabled: 1
-  stenchEnabled: 1
-  burpingEnabled: 1
-  breathingEasyMode: 1
+  blinkingEnabled: 0
+  breathingEnabled: 0
+  stenchEnabled: 0
+  burpingEnabled: 0
+  breathingEasyMode: 0
   blinkingEasyMode: 0
   noseHeld: 0
   rightBlurVolume: {fileID: 0}

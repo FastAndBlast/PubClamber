@@ -2872,6 +2872,7 @@ GameObject:
   - component: {fileID: 6488918811151326399}
   - component: {fileID: 6488918811151326396}
   - component: {fileID: -7711688651698846566}
+  - component: {fileID: -5572159420687973868}
   m_Layer: 0
   m_Name: Jimbo3
   m_TagString: Player
@@ -3001,6 +3002,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac92f4ff70191b640bea2e9d19864057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5572159420687973868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6488918811151326387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aaab0aa16c2bae4eb30b9ba48650bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkBlurTime: 5
+  blinkBlindTime: 10
+  lungCapacity: 20
+  airConsumptionRate: 2
+  airIntakeRate: 5
+  breathOutRate: 10
+  warningAirFrac: 0.3
+  easyModeCoeff: 1.5
+  stenchCap: 30
+  currentStenchLevel: 0
+  stenchDecay: 1
+  nearbyStench: 0
+  heldCoefficient: 0.5
+  burpMaxTimeBetween: 20
+  burpMinTimeBetween: 10
+  timeSinceBurpNeeded: 0
+  maxTimeSinceBurp: 5
+  blinkingEnabled: 1
+  breathingEnabled: 0
+  stenchEnabled: 1
+  burpingEnabled: 1
+  breathingEasyMode: 0
+  blinkingEasyMode: 0
+  noseHeld: 0
+  rightBlurVolume: {fileID: 0}
+  leftBlurVolume: {fileID: 0}
+  leftBlinder: {fileID: 0}
+  rightBlinder: {fileID: 0}
 --- !u!1 &6537558020118748003
 GameObject:
   m_ObjectHideFlags: 0

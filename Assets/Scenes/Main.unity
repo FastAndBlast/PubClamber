@@ -1496,6 +1496,8 @@ MonoBehaviour:
   level: 0
   profanity: 0
   playerCharacterPrefabs: []
+  deathDelay: -1
+  fadedBackPing: 1
 --- !u!4 &1065065274
 Transform:
   m_ObjectHideFlags: 0
@@ -1533,6 +1535,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3293ddbf5e2243042843f2cd0ef0a2d9, type: 3}
   audioSourcePrefab: {fileID: 6080823659866355401, guid: 626f69452638a3740921ad15afcbdd40, type: 3}
   playingClips: 
+  clipVolume: []
 --- !u!54 &1072522651
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2046,8 +2049,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1551574980075617546}
-  signRotation: {x: 0, y: 0, z: 0}
-  signPositionOffset: {x: 0, y: 0, z: 0}
   inverseSpeed: 1
 --- !u!114 &1671480871
 MonoBehaviour:

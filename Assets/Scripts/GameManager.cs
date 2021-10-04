@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public static bool muted;
 
-    float endOfLevelTimerMax = 3f;
+    float endOfLevelTimerMax = 5f;
     float endOfLevelTimer = 0;
     bool endOfLevel = false;
 
@@ -74,7 +74,8 @@ public class GameManager : MonoBehaviour
                 //Switch to next level
                 if (level < SceneMaster.lastLevelScene)
                 {
-                    SceneMaster.instance.ChangeScene(level + 1);
+                    level++;
+                    SceneMaster.instance.ChangeScene(SceneMaster.firstLevelScene + level);
                 }
                 else
                 {
@@ -120,7 +121,7 @@ public class GameManager : MonoBehaviour
         endOfLevelTimer = endOfLevelTimerMax;
         paused = true;
 
-        mainCameraParent.GetComponent<CameraController>().FocusSign(GameObject.FindWithTag("Sign").transform);
+        mainCameraParent.GetComponent<CameraController>().FocusSign(GameObject.FindWithTag("Sign").transform.GetChild(0));
     }
 
     public void SpawnPlayer()

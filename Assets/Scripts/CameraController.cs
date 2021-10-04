@@ -6,8 +6,8 @@ public class CameraController : MonoBehaviour
 {
     public Transform target;
 
-    public Vector3 signEulerAngles;
-    public Vector3 signPositionOffset;
+    Vector3 signEulerAngles = new Vector3(0, 177, 0);
+    Vector3 signPositionOffset; // = - new Vector3(-3.12021589f, 0.245577797f, -0.618911028f);
 
     //public float speed;
     public float inverseSpeed = 1;
@@ -39,7 +39,7 @@ public class CameraController : MonoBehaviour
         else if (target)
         {
             transform.position = Vector3.SmoothDamp(transform.position, target.position + signPositionOffset, ref velocity, inverseSpeed);
-            transform.position = Vector3.MoveTowards(transform.eulerAngles, signEulerAngles, Time.deltaTime * 60);
+            transform.eulerAngles = Vector3.MoveTowards(transform.eulerAngles, signEulerAngles, Time.deltaTime * 60);
         }
     }
 
