@@ -6,12 +6,12 @@ public class Player : MonoBehaviour
 {
     //string causeOfDeathString = "Unlucky";
 
-    public void Die(string causeOfDeath)
+    public void Die(string causeOfDeath, string tip)
     {
         //causeOfDeathString = causeOfDeath;
         //Destroy(this, 0.5f);
 
-        GetComponent<WalkingManager>().Die(causeOfDeath);
+        GetComponent<WalkingManager>().Die(causeOfDeath, tip);
         //print("huh");
     }
 

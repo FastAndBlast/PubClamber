@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5920288782186528205}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hand.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7115234013703758147}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm.04.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2708382458615682487}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine.004
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4207568638015903861}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hand.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2777994861648127841}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pelvis.L_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3370690145775816150}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_index.01.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7901411882126517123}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shoulder.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8105078223428563238}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shoulder.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8540591669516516888}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shin.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 666482733464972181}
   - component: {fileID: 666482733464972187}
   - component: {fileID: 666482733464972180}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: upper_arm.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 902210710272017663}
   - component: {fileID: 902210710272017661}
   - component: {fileID: 902210710272017662}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine.002
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2114578267880640468}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: breast.L_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1648603891759879938}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: heel.02.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2855375563527724657}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pelvis.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -604,7 +604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2769955396001342186}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_ring.01.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8090329077873478964}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_ring.01.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -666,7 +666,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1046691350056303855}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_middle.02.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -697,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7009196750131153818}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thumb.02.L_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4979269362198753188}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: breast.R_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 1747600391856917039}
   - component: {fileID: 1747600391856917032}
   - component: {fileID: 1747600391856917033}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: forearm.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -868,7 +868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3348021265830072388}
   - component: {fileID: 4846828077871348837}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jimbo6Hair
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1006,7 +1006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6333297710960399505}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine.003
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1041,7 +1041,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5003705814244502603}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thumb.02.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1072,7 +1072,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8575788509865554074}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: toe.L_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1102,7 +1102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7429789548467408222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: toe.R_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1132,7 +1132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5784340133345240291}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thigh.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1163,7 +1163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2044248863568254764}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_pinky.01.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1194,7 +1194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5453307962089481334}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm.02.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1225,7 +1225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3991916886049510885}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_ring.02.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1256,7 +1256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3236952272500062929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: foot.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1288,7 +1288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7304140566443184410}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: heel.02.R_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1318,7 +1318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 475415792547830817}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: toe.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1349,7 +1349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9179061306987350454}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine.001
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1381,7 +1381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6103681289948106568}
   - component: {fileID: 5947272735030137185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jimbo6Tie
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1525,7 +1525,7 @@ GameObject:
   - component: {fileID: 3166293457579325772}
   - component: {fileID: 3166293457579325773}
   - component: {fileID: 5278695242939487015}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jimbo6
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1539,9 +1539,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3166293457579325774}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 1.6762774, y: 0.00000047683716, z: 4.3694205}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 6734154152756427075}
   - {fileID: 3348021265830072388}
@@ -1553,7 +1553,7 @@ Transform:
   - {fileID: 4905518281246686323}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &3166293457579325809
 Animator:
   serializedVersion: 3
@@ -1702,7 +1702,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5102363820583221276}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_pinky.02.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1733,7 +1733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 573958931394594917}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_middle.02.R_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1763,7 +1763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6261477104674551667}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: toe.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1794,7 +1794,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7941075934212146619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_pinky.02.R_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1824,7 +1824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5044675387814456464}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm.03.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1855,7 +1855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8369413925343769595}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_pinky.01.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1886,7 +1886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4680780131649065229}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_index.02.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1917,7 +1917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1372255388370089380}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_ring.02.R_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1950,7 +1950,7 @@ GameObject:
   - component: {fileID: 3810070852231129331}
   - component: {fileID: 3810070852231129292}
   - component: {fileID: 3810070852231129293}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine.006
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2056,7 +2056,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4958701588532932341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_ring.02.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2087,7 +2087,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 427022352942486109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm.03.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2118,7 +2118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1770495373407758570}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_index.02.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2149,7 +2149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5054534789092188009}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_ring.02.L_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2179,7 +2179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4983375448019421825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pelvis.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2210,7 +2210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9185052688664815655}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_middle.02.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2241,7 +2241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7760882260105976904}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: foot.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3082,7 +3082,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4586610056947018561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shin.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3113,7 +3113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 57419735898608109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thumb.01.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3144,7 +3144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8752044642731639677}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_index.02.R_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3174,7 +3174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5933230246403565175}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RigJimbo6
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3205,7 +3205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7594248956168478527}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine.006_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3238,7 +3238,7 @@ GameObject:
   - component: {fileID: 5827465290586646348}
   - component: {fileID: 5827465290586646386}
   - component: {fileID: 5827465290586646387}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: upper_arm.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3345,7 +3345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7244008806755888964}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm.04.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3377,7 +3377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7007850628484210342}
   - component: {fileID: 465274610920646481}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jimbo6Pants
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3518,7 +3518,7 @@ GameObject:
   - component: {fileID: 6172588324508890080}
   - component: {fileID: 6172588324508890081}
   - component: {fileID: 6172588324508890082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: forearm.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3625,7 +3625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7676343648476679441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: breast.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3656,7 +3656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1303976114765322163}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thumb.01.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3687,7 +3687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4338316306138729478}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_pinky.02.L_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3717,7 +3717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2813191542873799656}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thumb.02.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3748,7 +3748,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4428222534541523702}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: breast.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3779,7 +3779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8906109074707459895}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: heel.02.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3810,7 +3810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 16123980632456782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thumb.02.R_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3841,7 +3841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6734154152756427075}
   - component: {fileID: 6652437339676334460}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jimbo6Base
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3985,7 +3985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9214143033693239026}
   - component: {fileID: 4884357089581914956}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jimbo6Jacket
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4124,7 +4124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 568584765987971115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_index.01.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4155,7 +4155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9054035153841721615}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_middle.01.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4187,7 +4187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8398536352805587615}
   - component: {fileID: 1269891988177492176}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jimbo6Shoes
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4325,7 +4325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4689275355575923232}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thigh.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4356,7 +4356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5225760902824922078}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_pinky.02.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4389,7 +4389,7 @@ GameObject:
   - component: {fileID: 1377596711974173526}
   - component: {fileID: 7232104213588364124}
   - component: {fileID: 7232104213588364125}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4455,7 +4455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6838103135914654765}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm.01.L
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4487,7 +4487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8890204206224235854}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: heel.02.L_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4517,7 +4517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7958773907509326008}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_middle.02.L_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4547,7 +4547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7929330896943123185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pelvis.R_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4577,7 +4577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4271278028499934372}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_index.02.L_end
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4607,7 +4607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3430193918846918172}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: f_middle.01.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4638,7 +4638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 83993110253744883}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm.02.R
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4669,7 +4669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1263950133567830423}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: palm.01.R
   m_TagString: Player
   m_Icon: {fileID: 0}

@@ -32,7 +32,7 @@ public class SFXManager : MonoBehaviour
 
         playingClips.Add(index);
 
-        print("SFX: " + index.ToString());
+        //print("SFX: " + index.ToString());
 
         GameObject sourceInstance = Instantiate(audioSourcePrefab);
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7895657245431556600}
   - component: {fileID: 7895657245431556601}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Waypoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7895657247234366629}
   - component: {fileID: 7895657247234366628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Waypoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 7895657247296554453}
   - component: {fileID: 7895657247296554452}
   - component: {fileID: 7895657247296554451}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TrafficLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

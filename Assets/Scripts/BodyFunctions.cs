@@ -177,21 +177,21 @@ public class BodyFunctions : MonoBehaviour
 
         if (airInLungs < 0)
         {
-            Die("Asphixiated to death");
+            Die("Asphixiated to death", "Tip: Hold E to breath");
             print("Asphixiated to death");
             return;
         }
 
         if (currentStenchLevel > stenchCap)
         {
-            Die("Passed out from stench");
+            Die("Passed out from stench", "Tip: Hold SPACE to hold your nose");
             print("Passed out from stench");
             return;
         }
 
         if (timeSinceBurpNeeded > maxTimeSinceBurp)
         {
-            Die("Passed out from not burping");
+            Die("Passed out from not burping", "Tip: Press V to burp");
             print("Passed out from not burping");
             return;
         }
@@ -292,17 +292,23 @@ public class BodyFunctions : MonoBehaviour
 
         if (Input.GetButton("BreatheIn"))
         {
-            int breatheInIndex = Random.Range(6, 8);
-            SFXManager.instance.PlaySFX(breatheInIndex);
-            breathingState = 1;
+            if (breathingEnabled)
+            {
+                int breatheInIndex = Random.Range(6, 8);
+                SFXManager.instance.PlaySFX(breatheInIndex);
+                breathingState = 1;
+            }
         }
         else 
         {
             if (Input.GetButton("BreatheOut"))
             {
-                int breatheOutIndex = Random.Range(3, 5);
+                if (breathingEnabled)
+                {
+                    int breatheOutIndex = Random.Range(3, 5);
                 SFXManager.instance.PlaySFX(breatheOutIndex);
                 breathingState = -1;
+                }
             }
             else
             {
@@ -335,13 +341,13 @@ public class BodyFunctions : MonoBehaviour
         timeSinceBurpNeeded = -burpMaxTimeBetween;
     }
 
-    public void Die(string causeOfDeath)
+    public void Die(string causeOfDeath, string tip)
     {
         //print("Died");
         //print(causeOfDeath);
         if (GetComponent<WalkingManager>())
         {
-            GetComponent<WalkingManager>().Die(causeOfDeath);
+            GetComponent<WalkingManager>().Die(causeOfDeath, tip);
         }
     }
 }

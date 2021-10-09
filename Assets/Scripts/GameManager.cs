@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public float deathDelay = -1;
 
     string lastCauseOfDeath;
+    string lastTip = "Tip: Git good";
 
     public bool fadedBackPing = true;
 
@@ -58,11 +59,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
-        {
-            paused = !paused;
-        }
-
         if (endOfLevel)
         {
             if (endOfLevelTimer > 0)
@@ -93,13 +89,13 @@ public class GameManager : MonoBehaviour
             deathDelay -= Time.deltaTime;
             if (deathDelay < 0)
             {
-                UIManager.instance.Death(lastCauseOfDeath);
+                UIManager.instance.Death(lastCauseOfDeath, lastTip);
                 deathDelay = -1;
             }
         }
     }
 
-    public void PlayerDeath(string causeOfDeath)
+    public void PlayerDeath(string causeOfDeath, string tip)
     {
         //UIManager.instance.Death(causeOfDeath);
         print("pop");
@@ -107,6 +103,7 @@ public class GameManager : MonoBehaviour
         {
             deathDelay = 0.5f;
             lastCauseOfDeath = causeOfDeath;
+            lastTip = tip;
         }
     }
 

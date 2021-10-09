@@ -22,6 +22,11 @@ public class Road : MonoBehaviour
         timeSinceCar = timeBetweenCars;
     }
 
+    private void Start()
+    {
+        carsSpawned = Random.Range(0, carPrefabs.Count);
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7976709239917760449}
   - component: {fileID: 5437667113839583127}
   - component: {fileID: 3980863426423174387}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TruckWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,13 +58,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9066150435736407929}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 15
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 36
   m_CollisionDetection: 0
 --- !u!65 &3980863426423174387
 BoxCollider:
@@ -145,6 +145,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 866117a3be938f74ea30aa4da0d8a749, type: 3}
       propertyPath: m_Name
       value: TruckWhite
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 866117a3be938f74ea30aa4da0d8a749, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 866117a3be938f74ea30aa4da0d8a749, type: 3}

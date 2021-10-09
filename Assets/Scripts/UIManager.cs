@@ -64,6 +64,11 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        {
+            Pause();
+        }
+
         if (fading)
         {
             fade += Time.deltaTime;
@@ -95,23 +100,27 @@ public class UIManager : MonoBehaviour
         fading = false;
     }
 
-    public void Death(string causeOfDeath)
+    public void Death(string causeOfDeath, string tip)
     {
         deathMenu.gameObject.SetActive(true);
         deathMenu.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = causeOfDeath;
+        deathMenu.GetChild(0).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = tip;
 
         UpdateIcons();
     }
 
     public void Pause()
     {
-        paused = !paused;
-        GameManager.instance.Pause();
+        if (!deathMenu.gameObject.activeInHierarchy)
+        {
+            paused = !paused;
+            GameManager.instance.Pause();
 
-        //Close / Open pause menu
-        pauseMenu.gameObject.SetActive(paused);
+            //Close / Open pause menu
+            pauseMenu.gameObject.SetActive(paused);
 
-        UpdateIcons();
+            UpdateIcons();
+        }
         //Menu.Find("ButtonPanel").Find("Profanity").GetComponent<Image>().sprite = buttonIcons[index];
         
     }

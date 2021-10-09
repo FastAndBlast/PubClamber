@@ -132,7 +132,7 @@ public class WalkingManager : MonoBehaviour
         LookAt();
 
         Vector3 newTransformPosition = (left.worldPos + right.worldPos) / 2;
-        newTransformPosition.y = 0;
+        newTransformPosition.y = -0.07f;
         transform.position = newTransformPosition;
 
 
@@ -144,7 +144,7 @@ public class WalkingManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             //Stumble();
-            Die("Stumbled into a concussion");
+            Die("Misinput", "Tip: Don't press U");
         }
 
         if (Input.GetButtonDown("LeftFoot"))
@@ -155,7 +155,7 @@ public class WalkingManager : MonoBehaviour
                 {
                     if (!shuffling)
                     {
-                        Die("Stumbled into a concussion");
+                        Die("Stumbled into a concussion", "Tip: Wait for one foot to land before stepping");
                     }
                 }
                 else
@@ -188,7 +188,7 @@ public class WalkingManager : MonoBehaviour
                 {
                     if (!shuffling)
                     {
-                        Die("Stumbled into a concussion");
+                        Die("Stumbled into a concussion", "Tip: Wait for one foot to land before stepping");
                     }
                 }
                 else
@@ -355,7 +355,10 @@ public class WalkingManager : MonoBehaviour
             //lastFootMoved = 1 - lastFootMoved;
             //print(lastFootMoved);
 
-            SFXManager.instance.PlaySFX(Random.Range(20, 25));
+            if (stepLength > 0.2f)
+            {
+                SFXManager.instance.PlaySFX(Random.Range(20, 25));
+            }
         }
     }
 
@@ -504,7 +507,7 @@ public class WalkingManager : MonoBehaviour
         
     }
 
-    public void Die(string causeOfDeath)
+    public void Die(string causeOfDeath, string tip)
     {
         //TODO: ragdoll
         on = false;
@@ -516,7 +519,7 @@ public class WalkingManager : MonoBehaviour
         if (GameManager.instance)
         {
             print("hmmm");
-            GameManager.instance.PlayerDeath(causeOfDeath);
+            GameManager.instance.PlayerDeath(causeOfDeath, tip);
         }
     }
 

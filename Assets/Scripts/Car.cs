@@ -20,7 +20,13 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GameManager.paused)
+        {
+            return;
+        }    
+
         transform.LookAt(currentTarget.transform);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
 
         TrafficLight trafficLight = currentTarget.GetComponent<TrafficLight>();
         if (trafficLight != null)
@@ -51,7 +57,9 @@ public class Car : MonoBehaviour
             currentSpeed = Mathf.Min(currentSpeed, currentSpeed2);
         }
 
-        transform.position += transform.forward * currentSpeed;
+        float changeY = transform.position.y - Mathf.MoveTowards(transform.position.y, currentTarget.transform.position.y, Time.deltaTime * 10);
+
+        GetComponent<Rigidbody>().MovePosition(transform.position + Vector3.up * changeY + transform.forward * currentSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -79,7 +87,10 @@ public class Car : MonoBehaviour
         {
             //print("Hit by a car");
             SFXManager.instance.PlaySFX(Random.Range(17, 20));
-            BodyFunctions.instance.Die("Hit by a car");
+            if (GameManager.instance.player.GetComponent<WalkingManager>().on)
+            {
+                BodyFunctions.instance.Die("Hit by a car", "Tip: Wait for the green light");
+            }
         }
     }
 

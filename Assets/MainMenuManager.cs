@@ -32,7 +32,7 @@ public class MainMenuManager : MonoBehaviour
 
         int mutedIndex = GameManager.muted ? 0 : 1;
 
-        canvas.GetChild(0).Find("Mute").GetComponent<Image>().sprite = buttonIcons[mutedIndex];
+        canvas.GetChild(1).Find("Mute").GetComponent<Image>().sprite = buttonIcons[mutedIndex];
     }
 
     public void Profanity()
@@ -43,7 +43,7 @@ public class MainMenuManager : MonoBehaviour
 
         int profanityIndex = GameManager.instance.profanity ? 2 : 3;
 
-        canvas.GetChild(0).Find("Profanity").GetComponent<Image>().sprite = buttonIcons[profanityIndex];
+        canvas.GetChild(1).Find("Profanity").GetComponent<Image>().sprite = buttonIcons[profanityIndex];
         
         if (GameManager.instance.profanity)
         {
