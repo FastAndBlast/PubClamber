@@ -132,7 +132,7 @@ public class WalkingManager : MonoBehaviour
         LookAt();
 
         Vector3 newTransformPosition = (left.worldPos + right.worldPos) / 2;
-        newTransformPosition.y = -0.07f;
+        newTransformPosition.y = 0;//-0.07f;
         transform.position = newTransformPosition;
 
 
@@ -518,7 +518,6 @@ public class WalkingManager : MonoBehaviour
         print(GameManager.instance);
         if (GameManager.instance)
         {
-            print("hmmm");
             GameManager.instance.PlayerDeath(causeOfDeath, tip);
         }
     }

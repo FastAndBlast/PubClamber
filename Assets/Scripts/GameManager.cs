@@ -10,6 +10,17 @@ public class GameManager : MonoBehaviour
     public GameObject player;
 
     public int level;
+    public int maxLevel
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("MaxLevel", 0);
+        }
+        set
+        {
+            PlayerPrefs.SetInt("MaxLevel", value);
+        }
+    }
 
     public static GameManager instance;
 
@@ -71,6 +82,11 @@ public class GameManager : MonoBehaviour
                 if (level < SceneMaster.lastLevelScene)
                 {
                     level++;
+                    if (level > maxLevel)
+                    {
+                        maxLevel = level;
+                    }
+
                     SceneMaster.instance.ChangeScene(SceneMaster.firstLevelScene + level);
                 }
                 else
@@ -98,7 +114,6 @@ public class GameManager : MonoBehaviour
     public void PlayerDeath(string causeOfDeath, string tip)
     {
         //UIManager.instance.Death(causeOfDeath);
-        print("pop");
         if (deathDelay <= 0)
         {
             deathDelay = 0.5f;

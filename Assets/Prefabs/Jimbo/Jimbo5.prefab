@@ -2239,7 +2239,7 @@ MonoBehaviour:
   leftFoot: {fileID: 96094082583862232}
   rightFoot: {fileID: 96094083279414487}
   state: 0
-  stepSpeed: 1.25
+  stepSpeed: 10
   shuffleSpeed: 0.5
   spinePart: {fileID: 3483937092500410477}
   spineStumbleAngle: 40

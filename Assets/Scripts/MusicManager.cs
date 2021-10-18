@@ -19,6 +19,10 @@ public class MusicManager : MonoBehaviour
 
     float[] voiceLineLength = new float[6] { 7.6f, 8.5f, 4.5f, 6.6f, 8.1f, 6.7f };
 
+    float menuMusicTime;
+
+    bool lastSceneMenu = true;
+
     public void Awake()
     {
         //start is 1 seconds long
@@ -63,11 +67,23 @@ public class MusicManager : MonoBehaviour
             sourceInstance.transform.localPosition = Vector3.zero;
 
             loopTimer = loops[GameManager.instance.level].length - 4f;
+
+            if (SceneManager.GetActiveScene().buildIndex == SceneMaster.levelSelectScene || SceneManager.GetActiveScene().buildIndex == SceneMaster.mainMenuScene)
+            {
+                sourceInstance.GetComponent<AudioSource>().time = menuMusicTime;
+                sourceInstance.GetComponent<DestroyTimer>().time = playedClip.length - menuMusicTime + 0.1f;
+                loopTimer = (loops[GameManager.instance.level].length - 4f) - menuMusicTime;
+            }
         }
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (lastSceneMenu)
+        {
+            menuMusicTime = menuMusic.length - (loopTimer + 4f);
+        }
+
         loopTimer = 1f;
         if (scene.buildIndex >= SceneMaster.firstLevelScene && scene.buildIndex < SceneMaster.lastLevelScene)
         {
@@ -82,7 +98,12 @@ public class MusicManager : MonoBehaviour
             sourceInstance.transform.parent = Camera.main.transform;
             sourceInstance.transform.localPosition = Vector3.zero;
 
-            
+            lastSceneMenu = false;
+            menuMusicTime = 0;
+        }
+        else
+        {
+            lastSceneMenu = true;
         }
     }
 }

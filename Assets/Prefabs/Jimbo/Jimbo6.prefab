@@ -1604,7 +1604,7 @@ MonoBehaviour:
   leftFoot: {fileID: 4905518281448108746}
   rightFoot: {fileID: 4905518281485593448}
   state: 0
-  stepSpeed: 1.25
+  stepSpeed: 10
   shuffleSpeed: 0.5
   spinePart: {fileID: 9179061306987350454}
   spineStumbleAngle: 40

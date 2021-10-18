@@ -59,25 +59,42 @@ public class Car : MonoBehaviour
 
         float changeY = transform.position.y - Mathf.MoveTowards(transform.position.y, currentTarget.transform.position.y, Time.deltaTime * 10);
 
-        GetComponent<Rigidbody>().MovePosition(transform.position + Vector3.up * changeY + transform.forward * currentSpeed);
+        Vector3 newPosition = Vector3.MoveTowards(transform.position, targetCollider.transform.position, currentSpeed);
+
+        GetComponent<Rigidbody>().MovePosition(newPosition + Vector3.up * changeY);
+
+        Vector3 positionNoY = new Vector3(transform.position.x, 0, transform.position.z);
+        Vector3 colliderPositionNoY = new Vector3(targetCollider.transform.position.x, 0, targetCollider.transform.position.z);
+
+        if (Vector3.Distance(positionNoY, colliderPositionNoY) < 0.1f)
+        {
+            NextWaypoint();
+        }
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other == targetCollider)
         {
-            waypointNum++;
-            if (waypointNum < road.waypoints.Count)
-            {
-                TargetWaypoint(waypointNum);
-            }
-            else
-            {
-                // Cars cannot pass each other
-                road.cars.Remove(this);
-                road.UpdateIndex(-1);
-                Destroy(gameObject);
-            }
+            NextWaypoint();
+        }
+    }
+    */
+
+    public void NextWaypoint()
+    {
+        waypointNum++;
+        if (waypointNum < road.waypoints.Count)
+        {
+            TargetWaypoint(waypointNum);
+        }
+        else
+        {
+            // Cars cannot pass each other
+            road.cars.Remove(this);
+            road.UpdateIndex(-1);
+            Destroy(gameObject);
         }
     }
 
@@ -103,6 +120,6 @@ public class Car : MonoBehaviour
     private float GetSlowdownFactor(float distance)
     // Linear decrease from 15 to 3 metres
     {
-        return Mathf.Clamp01((distance - 3) / 12);
+        return Mathf.Clamp01((distance - 5) / 12);
     }
 }

@@ -13,15 +13,15 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneMaster.instance.ChangeScene(SceneMaster.firstLevelScene);
     }
-    
-    public void Quit()
-    {
-        Application.Quit();
-    }
 
     public void LevelSelect()
     {
         SceneMaster.instance.ChangeScene(SceneMaster.levelSelectScene);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     public void Mute()

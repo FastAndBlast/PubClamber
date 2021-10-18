@@ -71,10 +71,12 @@ public class TrafficLight : MonoBehaviour
 
     public void SetColor(int col)
     {
-        Material mat = gameObject.GetComponent<MeshRenderer>().material;
+        //Material mat = gameObject.GetComponent<MeshRenderer>().material;
         if (col == 0)
         {
             //mat.color = Color.green;
+            attachedObject.transform.Find("RedPedestrian").gameObject.SetActive(true);
+            attachedObject.transform.Find("GreenPedestrian").gameObject.SetActive(false);
             attachedObject.transform.Find("Red").gameObject.SetActive(false);
             attachedObject.transform.Find("Yellow").gameObject.SetActive(false);
             attachedObject.transform.Find("Green").gameObject.SetActive(true);
@@ -97,6 +99,8 @@ public class TrafficLight : MonoBehaviour
         else if (col == 1)
         {
             //mat.color = Color.yellow;
+            attachedObject.transform.Find("RedPedestrian").gameObject.SetActive(true);
+            attachedObject.transform.Find("GreenPedestrian").gameObject.SetActive(false);
             attachedObject.transform.Find("Red").gameObject.SetActive(false);
             attachedObject.transform.Find("Yellow").gameObject.SetActive(true);
             attachedObject.transform.Find("Green").gameObject.SetActive(false);
@@ -120,6 +124,8 @@ public class TrafficLight : MonoBehaviour
         else
         {
             //mat.color = Color.red;
+            attachedObject.transform.Find("RedPedestrian").gameObject.SetActive(false);
+            attachedObject.transform.Find("GreenPedestrian").gameObject.SetActive(true);
             attachedObject.transform.Find("Red").gameObject.SetActive(true);
             attachedObject.transform.Find("Yellow").gameObject.SetActive(false);
             attachedObject.transform.Find("Green").gameObject.SetActive(false);
