@@ -63,16 +63,16 @@ public class Car : MonoBehaviour
 
         GetComponent<Rigidbody>().MovePosition(newPosition + Vector3.up * changeY);
 
-        Vector3 positionNoY = new Vector3(transform.position.x, 0, transform.position.z);
-        Vector3 colliderPositionNoY = new Vector3(targetCollider.transform.position.x, 0, targetCollider.transform.position.z);
+        //Vector3 positionNoY = new Vector3(transform.position.x, 0, transform.position.z);
+        //Vector3 colliderPositionNoY = new Vector3(targetCollider.transform.position.x, 0, targetCollider.transform.position.z);
 
-        if (Vector3.Distance(positionNoY, colliderPositionNoY) < 0.1f)
-        {
-            NextWaypoint();
-        }
+        //if (Vector3.Distance(positionNoY, colliderPositionNoY) < 0.1f)
+        //{
+        //    NextWaypoint();
+        //}
     }
 
-    /*
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other == targetCollider)
@@ -80,7 +80,7 @@ public class Car : MonoBehaviour
             NextWaypoint();
         }
     }
-    */
+    
 
     public void NextWaypoint()
     {

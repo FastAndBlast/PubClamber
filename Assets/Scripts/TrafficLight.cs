@@ -14,10 +14,12 @@ public class TrafficLight : MonoBehaviour
     public bool red;
     private float currentTime;
 
-    public GameObject attachedObject;
+    public List<GameObject> attachedObjects;
 
     float timeInBetweenBeeps = 3f;
     float timePassed = 0f;
+
+    private bool pastStart = false;
 
     public bool sound;
 
@@ -36,34 +38,67 @@ public class TrafficLight : MonoBehaviour
             float dtime = Time.deltaTime;
             currentTime += dtime;
         }
-        
+        if (!pastStart)
+        {
+            if (currentTime < startTime)
+            {
+                red = true;
+                SetColor(2);
+                return;
+            }
+            else
+            {
+                currentTime = 0;
+                pastStart = true;
+                return;
+            }
+        }
+
         if (currentTime < greenTime)
         {
+            // green
+            red = false;
+            SetColor(0);
+
             // red
-            red = true;
-            SetColor(2);
+            //red = true;
+            //SetColor(2);
         }
         else
         {
             if (currentTime < orangeTransition)
             {
+                // orange
+                red = true;
+                SetColor(1);
+
                 // green
-                red = false;
-                SetColor(0);
+                //red = false;
+                //SetColor(0);
             }
             else
             {
                 if (currentTime < redTransition)
                 {
-                    // orange
+                    // red
                     red = true;
-                    SetColor(1);
+                    SetColor(2);
+
+                    // orange
+                    //red = true;
+                    //SetColor(1);
                 }
                 else
                 {
+                    // green
+                    red = false;
+                    SetColor(0);
                     currentTime = 0;
-                    red = true;
-                    SetColor(2);
+
+                    // red transition
+                    //currentTime = 0;
+                    //red = true;
+                    //SetColor(2);
                 }
             }
         }
@@ -75,71 +110,80 @@ public class TrafficLight : MonoBehaviour
         if (col == 0)
         {
             //mat.color = Color.green;
-            attachedObject.transform.Find("RedPedestrian").gameObject.SetActive(true);
-            attachedObject.transform.Find("GreenPedestrian").gameObject.SetActive(false);
-            attachedObject.transform.Find("Red").gameObject.SetActive(false);
-            attachedObject.transform.Find("Yellow").gameObject.SetActive(false);
-            attachedObject.transform.Find("Green").gameObject.SetActive(true);
-
-            if (sound)
+            foreach (GameObject attachedObject in attachedObjects)
             {
-                attachedObject.GetComponent<AudioSource>().clip = SFXManager.instance.clips[16];
-                attachedObject.GetComponent<AudioSource>().loop = false;
-                if (!attachedObject.GetComponent<AudioSource>().isPlaying && timePassed > timeInBetweenBeeps)
+                attachedObject.transform.Find("RedPedestrian").gameObject.SetActive(true);
+                attachedObject.transform.Find("GreenPedestrian").gameObject.SetActive(false);
+                attachedObject.transform.Find("Red").gameObject.SetActive(false);
+                attachedObject.transform.Find("Yellow").gameObject.SetActive(false);
+                attachedObject.transform.Find("Green").gameObject.SetActive(true);
+
+                if (sound)
                 {
-                    attachedObject.GetComponent<AudioSource>().Play();
-                    timePassed = 0f;
-                }
-                else
-                {
-                    timeInBetweenBeeps -= Time.deltaTime;
+                    attachedObject.GetComponent<AudioSource>().clip = SFXManager.instance.clips[16];
+                    attachedObject.GetComponent<AudioSource>().loop = false;
+                    if (!attachedObject.GetComponent<AudioSource>().isPlaying && timePassed > timeInBetweenBeeps)
+                    {
+                        attachedObject.GetComponent<AudioSource>().Play();
+                        timePassed = 0f;
+                    }
+                    else
+                    {
+                        timeInBetweenBeeps -= Time.deltaTime;
+                    }
                 }
             }
         }
         else if (col == 1)
         {
             //mat.color = Color.yellow;
-            attachedObject.transform.Find("RedPedestrian").gameObject.SetActive(true);
-            attachedObject.transform.Find("GreenPedestrian").gameObject.SetActive(false);
-            attachedObject.transform.Find("Red").gameObject.SetActive(false);
-            attachedObject.transform.Find("Yellow").gameObject.SetActive(true);
-            attachedObject.transform.Find("Green").gameObject.SetActive(false);
-
-            if (sound)
+            foreach (GameObject attachedObject in attachedObjects)
             {
-                attachedObject.GetComponent<AudioSource>().clip = SFXManager.instance.clips[16];
-                attachedObject.GetComponent<AudioSource>().loop = false;
+                attachedObject.transform.Find("RedPedestrian").gameObject.SetActive(true);
+                attachedObject.transform.Find("GreenPedestrian").gameObject.SetActive(false);
+                attachedObject.transform.Find("Red").gameObject.SetActive(false);
+                attachedObject.transform.Find("Yellow").gameObject.SetActive(true);
+                attachedObject.transform.Find("Green").gameObject.SetActive(false);
 
-                if (!attachedObject.GetComponent<AudioSource>().isPlaying && timePassed > timeInBetweenBeeps)
+                if (sound)
                 {
-                    attachedObject.GetComponent<AudioSource>().Play();
-                    timePassed = 0f;
-                }
-                else
-                {
-                    timeInBetweenBeeps -= Time.deltaTime;
+                    attachedObject.GetComponent<AudioSource>().clip = SFXManager.instance.clips[16];
+                    attachedObject.GetComponent<AudioSource>().loop = false;
+
+                    if (!attachedObject.GetComponent<AudioSource>().isPlaying && timePassed > timeInBetweenBeeps)
+                    {
+                        attachedObject.GetComponent<AudioSource>().Play();
+                        timePassed = 0f;
+                    }
+                    else
+                    {
+                        timeInBetweenBeeps -= Time.deltaTime;
+                    }
                 }
             }
         }
         else
         {
             //mat.color = Color.red;
-            attachedObject.transform.Find("RedPedestrian").gameObject.SetActive(false);
-            attachedObject.transform.Find("GreenPedestrian").gameObject.SetActive(true);
-            attachedObject.transform.Find("Red").gameObject.SetActive(true);
-            attachedObject.transform.Find("Yellow").gameObject.SetActive(false);
-            attachedObject.transform.Find("Green").gameObject.SetActive(false);
-
-            if (sound)
+            foreach (GameObject attachedObject in attachedObjects)
             {
-                attachedObject.GetComponent<AudioSource>().clip = SFXManager.instance.clips[15]; //brrrr
-                attachedObject.GetComponent<AudioSource>().loop = true;
+                attachedObject.transform.Find("RedPedestrian").gameObject.SetActive(false);
+                attachedObject.transform.Find("GreenPedestrian").gameObject.SetActive(true);
+                attachedObject.transform.Find("Red").gameObject.SetActive(true);
+                attachedObject.transform.Find("Yellow").gameObject.SetActive(false);
+                attachedObject.transform.Find("Green").gameObject.SetActive(false);
 
-                if (!attachedObject.GetComponent<AudioSource>().isPlaying)// && Vector3.Distance(GameManager.instance.player))
+                if (sound)
                 {
-                    attachedObject.GetComponent<AudioSource>().Play();
+                    attachedObject.GetComponent<AudioSource>().clip = SFXManager.instance.clips[15]; //brrrr
+                    attachedObject.GetComponent<AudioSource>().loop = true;
+
+                    if (!attachedObject.GetComponent<AudioSource>().isPlaying)// && Vector3.Distance(GameManager.instance.player))
+                    {
+                        attachedObject.GetComponent<AudioSource>().Play();
+                    }
+                    timePassed = timeInBetweenBeeps;
                 }
-                timePassed = timeInBetweenBeeps;
             }
         }
 
