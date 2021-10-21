@@ -3,7 +3,37 @@ guid: 101c7e7861acc2c49aa86248800cf2d2
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Car1GlassMat
+    second: {fileID: 2100000, guid: 7f4e9a0b31c87e14e8cc904deff7cc84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Car1LightMat
+    second: {fileID: 2100000, guid: 999ad47ac7310904e88b416154d628f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Car1MetalMat
+    second: {fileID: 2100000, guid: 9e53fc6afa519bf49a1f92d45998de31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Car1NumberPlateMat
+    second: {fileID: 2100000, guid: cceb62195c08f884a8faf39c895373c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Car1RedMat.002
+    second: {fileID: 2100000, guid: 8759e9e448878ac4aa06327f795efa91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CarTireMat
+    second: {fileID: 2100000, guid: 6fde11a8f5023744b85d767c2fc1a90f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

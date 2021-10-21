@@ -3,7 +3,12 @@ guid: 866117a3be938f74ea30aa4da0d8a749
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Car1GlassMat
+    second: {fileID: 2100000, guid: 7f4e9a0b31c87e14e8cc904deff7cc84, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
