@@ -18,6 +18,9 @@ public class CameraController : MonoBehaviour
 
     bool trackSign = false;
 
+    public Vector3 boundingBoxPos;
+    public Vector2 boundingBoxSize;
+
     private void Start()
     {
         if (target)
@@ -41,11 +44,24 @@ public class CameraController : MonoBehaviour
             transform.position = Vector3.SmoothDamp(transform.position, target.position + signPositionOffset, ref velocity, inverseSpeed);
             transform.eulerAngles = Vector3.MoveTowards(transform.eulerAngles, signEulerAngles, Time.deltaTime * 60);
         }
+
+        Vector3 clamped = new Vector3(
+            Mathf.Clamp(transform.position.x, boundingBoxPos.x - boundingBoxSize.x / 2, boundingBoxPos.x + boundingBoxSize.x / 2),
+            transform.position.y,
+            Mathf.Clamp(transform.position.z, boundingBoxPos.z - boundingBoxSize.y / 2, boundingBoxPos.z + boundingBoxSize.y / 2));
+
+        transform.position = clamped;
     }
 
     public void FocusSign(Transform signTransform)
     {
         target = signTransform;
         trackSign = true;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(boundingBoxPos, new Vector3(boundingBoxSize.x, 0, boundingBoxSize.y));
     }
 }

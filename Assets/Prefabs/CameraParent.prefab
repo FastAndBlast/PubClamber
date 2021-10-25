@@ -366,6 +366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   inverseSpeed: 1
+  boundingBoxPos: {x: -1, y: 8.125, z: -25}
+  boundingBoxSize: {x: 7, y: 50}
 --- !u!1 &2447943478288433944
 GameObject:
   m_ObjectHideFlags: 0
