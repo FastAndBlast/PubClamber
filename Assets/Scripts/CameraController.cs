@@ -21,6 +21,8 @@ public class CameraController : MonoBehaviour
     public Vector3 boundingBoxPos;
     public Vector2 boundingBoxSize;
 
+    public bool clamping = true;
+
     private void Start()
     {
         if (target)
@@ -45,18 +47,23 @@ public class CameraController : MonoBehaviour
             transform.eulerAngles = Vector3.MoveTowards(transform.eulerAngles, signEulerAngles, Time.deltaTime * 60);
         }
 
-        Vector3 clamped = new Vector3(
+        if (clamping)
+        {
+            Vector3 clamped = new Vector3(
             Mathf.Clamp(transform.position.x, boundingBoxPos.x - boundingBoxSize.x / 2, boundingBoxPos.x + boundingBoxSize.x / 2),
             transform.position.y,
             Mathf.Clamp(transform.position.z, boundingBoxPos.z - boundingBoxSize.y / 2, boundingBoxPos.z + boundingBoxSize.y / 2));
 
-        transform.position = clamped;
+            transform.position = clamped;
+        }
+        
     }
 
     public void FocusSign(Transform signTransform)
     {
         target = signTransform;
         trackSign = true;
+        clamping = false;
     }
 
     private void OnDrawGizmosSelected()

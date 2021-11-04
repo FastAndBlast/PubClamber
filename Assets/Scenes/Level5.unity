@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0fe27c38f2eb55e4b93028daf59e82f1, type: 3}
+      propertyPath: m_TagString
+      value: Sign
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fe27c38f2eb55e4b93028daf59e82f1, type: 3}
 --- !u!4 &17650969 stripped

@@ -366,7 +366,7 @@ public class WalkingManager : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 disp = foot.transform.forward * magnitude;
-        bool collide = Physics.SphereCast(foot.transform.position, 0.25f, disp.normalized, out hit, disp.magnitude);
+        bool collide = Physics.SphereCast(foot.transform.position, 0.25f, disp.normalized, out hit, disp.magnitude, -1, QueryTriggerInteraction.Ignore);
 
         Debug.DrawLine(foot.transform.position, foot.transform.position + disp, Color.blue);
         //Gizmos.DrawWireSphere(foot.transform.position + disp, 2);
