@@ -3292,6 +3292,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelT
       objectReference: {fileID: 0}
+    - target: {fileID: 2683381371560210180, guid: b9fd5170f9efba443837ea2d69be325f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3348032214369531326, guid: b9fd5170f9efba443837ea2d69be325f, type: 3}
       propertyPath: m_RootOrder
       value: 70
@@ -5836,6 +5840,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3dc6250e2af89154ebe31edff888b98c, type: 3}
       propertyPath: m_Name
       value: Level1Floorplan 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3dc6250e2af89154ebe31edff888b98c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dc6250e2af89154ebe31edff888b98c, type: 3}
