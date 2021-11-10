@@ -873,20 +873,45 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<size=100><color=#####>Thank you for playing</color></size>
 
-    <b>Maximus
-    Lorents</b> - Programmer
+    <size=70><b>Dev
+    Team</b></size>
+
+    Maximus Lorents - Programmer
 
     Michael Kennedy - Programmer
 
-    Ari Begbie -
-    3D Modeller
+    Ari
+    Begbie - 3D Artist
 
-    Benjamin Curtis - Audio Designer
+    Ben Curtis - Audio Designer
 
-    Brett Howard-Butler -
-    Artist
+    Gabriel Don - Writer
 
-    Gabriel Don - Writer'
+    Brett
+    Howard-Butler - Concept Artist
+
+
+    <size=70><b>Voice Actors</b></size>
+
+    Gaberiel
+    Don
+
+    Ben Curtis
+
+    Maria Zacharakis
+
+    Miles Thomspon
+
+    Asher Begbie
+
+    Charlie
+    Curtis
+
+    Lily Begbie
+
+
+
+    <size=15>A game by BedHair Studio :slight_smile:</size>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca0d4791f4c1d6647b0a13b7872ed01e, type: 2}
   m_sharedMaterial: {fileID: -2238843102674444500, guid: ca0d4791f4c1d6647b0a13b7872ed01e, type: 2}
