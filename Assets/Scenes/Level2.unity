@@ -1124,7 +1124,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 1527022000}
   - {fileID: 1527021999}
-  sound: 1
+  sound: 0
 --- !u!65 &176118175
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6101,7 +6101,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 2000805934}
   - {fileID: 2000805933}
-  sound: 1
+  sound: 0
 --- !u!65 &1231440761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7031,7 +7031,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 2000805936}
   - {fileID: 2000805935}
-  sound: 1
+  sound: 0
 --- !u!65 &1415482706
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9153,7 +9153,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 1527022002}
   - {fileID: 1527022001}
-  sound: 1
+  sound: 0
 --- !u!65 &1948710809
 BoxCollider:
   m_ObjectHideFlags: 0

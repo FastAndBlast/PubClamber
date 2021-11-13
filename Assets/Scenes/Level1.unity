@@ -7426,7 +7426,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 5572734981668127442}
   - {fileID: 5572734981668127441}
-  sound: 1
+  sound: 0
 --- !u!1 &7895657245970319765
 GameObject:
   m_ObjectHideFlags: 0
@@ -7864,7 +7864,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 5572734981668127444}
   - {fileID: 5572734981668127443}
-  sound: 1
+  sound: 0
 --- !u!1 &7895657247181364775
 GameObject:
   m_ObjectHideFlags: 0
@@ -8032,7 +8032,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 958373730}
   - {fileID: 5572734981668127440}
-  sound: 1
+  sound: 0
 --- !u!1 &7895657247275150303
 GameObject:
   m_ObjectHideFlags: 0

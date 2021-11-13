@@ -1339,7 +1339,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 1396629629}
   - {fileID: 1396629628}
-  sound: 1
+  sound: 0
 --- !u!65 &212997626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2668,7 +2668,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 1396629633}
   - {fileID: 1396629632}
-  sound: 1
+  sound: 0
 --- !u!65 &532241914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6992,7 +6992,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 1396629631}
   - {fileID: 1396629630}
-  sound: 1
+  sound: 0
 --- !u!65 &1858589719
 BoxCollider:
   m_ObjectHideFlags: 0

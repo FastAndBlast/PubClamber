@@ -1165,7 +1165,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 0}
   - {fileID: 0}
-  sound: 1
+  sound: 0
 --- !u!65 &107019379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3251,7 +3251,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 1317372621}
   - {fileID: 1317372620}
-  sound: 1
+  sound: 0
 --- !u!65 &437560179
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3441,7 +3441,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 0}
   - {fileID: 0}
-  sound: 1
+  sound: 0
 --- !u!65 &468000551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4995,7 +4995,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 0}
   - {fileID: 0}
-  sound: 1
+  sound: 0
 --- !u!65 &670375338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5061,7 +5061,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 0}
   - {fileID: 0}
-  sound: 1
+  sound: 0
 --- !u!65 &675466219
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8124,7 +8124,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 1349048328}
   - {fileID: 1349048327}
-  sound: 1
+  sound: 0
 --- !u!65 &1210538538
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9904,7 +9904,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 1349048326}
   - {fileID: 1349048325}
-  sound: 1
+  sound: 0
 --- !u!65 &1451228604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12215,7 +12215,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 1349048332}
   - {fileID: 1349048331}
-  sound: 1
+  sound: 0
 --- !u!65 &1776668506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12715,7 +12715,7 @@ MonoBehaviour:
   attachedObjects:
   - {fileID: 1317372623}
   - {fileID: 1317372622}
-  sound: 1
+  sound: 0
 --- !u!65 &1860176350
 BoxCollider:
   m_ObjectHideFlags: 0
