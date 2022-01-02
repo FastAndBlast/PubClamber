@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     public Transform fadePanel;
 
     public Transform darkPanel;
+
+    public Transform greenPanel;
+
     public Transform pauseMenu;
     public Transform deathMenu;
 
@@ -54,6 +57,7 @@ public class UIManager : MonoBehaviour
         deathMenu = canvas.Find("DeathMenu");
         darkPanel = canvas.Find("DarkPanel");
         fadePanel = canvas.Find("FadePanel");
+        greenPanel = canvas.Find("GreenPanel");
 
         //Update Profanity UI & Mute UI
 
@@ -85,6 +89,20 @@ public class UIManager : MonoBehaviour
         Color col = fadePanel.GetComponent<Image>().color;
         col.a = fade;
         fadePanel.GetComponent<Image>().color = col;
+
+        if (paused)
+        {
+            greenPanel.gameObject.SetActive(false);
+        }
+        else
+        {
+            Color greenCol = greenPanel.GetComponent<Image>().color;
+
+            greenCol.a = (BodyFunctions.instance.currentStenchLevel / BodyFunctions.instance.stenchCap) * 0.3f;
+
+            greenPanel.gameObject.SetActive(true);
+            greenPanel.GetComponent<Image>().color = greenCol;
+        }
 
     }
 
@@ -195,7 +213,7 @@ public class UIManager : MonoBehaviour
     {
         pauseMenu.gameObject.SetActive(false);
         deathMenu.gameObject.SetActive(false);
-        GameManager.instance.SpawnPlayer();
+        GameManager.instance.Restart();
         //print("call");
 
         UpdateIcons();

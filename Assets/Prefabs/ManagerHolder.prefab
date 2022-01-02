@@ -72,6 +72,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 60a57f96a70f90d4096a8e178d0a6dc1, type: 3}
   - {fileID: 8300000, guid: 9a8ec3d87905aab47a4fb4b5b059e400, type: 3}
   - {fileID: 8300000, guid: f2ffb2bdfc192e64daaa80505d1173f0, type: 3}
+  - {fileID: 8300000, guid: 3112fe7fe557f834aa931e6c65ab3ebe, type: 3}
+  - {fileID: 8300000, guid: 40872657c8be8834cac3504800eb0556, type: 3}
+  - {fileID: 8300000, guid: 2075f18574fa18245875018a7fec0b51, type: 3}
+  - {fileID: 8300000, guid: 8a645fbca3cb8c542a44b869f8aed611, type: 3}
+  - {fileID: 8300000, guid: 2e5e386e5f3919444a4d4c95ab29dec9, type: 3}
+  - {fileID: 8300000, guid: 5ad0b5cc10f6f7341a42c072afb0a282, type: 3}
+  - {fileID: 8300000, guid: 1c20d2d43b2b1914bbca5bc63f689084, type: 3}
+  - {fileID: 8300000, guid: 2e5e386e5f3919444a4d4c95ab29dec9, type: 3}
+  - {fileID: 8300000, guid: 62b6d785fc52bbb4785e78984d9576b2, type: 3}
+  - {fileID: 8300000, guid: d8a430aaa236af549b6dd0773ec061be, type: 3}
+  - {fileID: 8300000, guid: 2e5e386e5f3919444a4d4c95ab29dec9, type: 3}
+  - {fileID: 8300000, guid: e11ad53834babe6489aeea0fc39a7da4, type: 3}
   audioSourcePrefab: {fileID: 6080823659866355401, guid: 626f69452638a3740921ad15afcbdd40, type: 3}
   playingClips: 
   clipVolume:
@@ -100,6 +112,16 @@ MonoBehaviour:
   - 0.6
   - 0.6
   - 0.6
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
   - 1
   - 1
   - 1

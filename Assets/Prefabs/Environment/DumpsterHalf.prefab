@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6472517055289170828}
   - component: {fileID: 9094466057602330438}
   - component: {fileID: 6471540149523919692}
+  - component: {fileID: -968307002447214956}
   m_Layer: 0
   m_Name: DumpsterHalf
   m_TagString: Untagged
@@ -98,6 +99,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.018028814, y: 0.011315316, z: 0.017631402}
   m_Center: {x: 0, y: 0.00049134984, z: 0.008815701}
+--- !u!114 &-968307002447214956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7293285759955783315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a665bbe2ca6e8624c95942dda71eec24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stenchScore: 3
+  range: 5
 --- !u!1001 &2489962665976285355
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,6 +16,11 @@ public class StenchSource : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (!player)
+        {
+            player = BodyFunctions.instance;
+        }
+
         if ((player.transform.position - transform.position).magnitude < range)
         {
             player.nearbyStench = Mathf.Max(player.nearbyStench, stenchScore);

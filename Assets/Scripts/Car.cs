@@ -113,6 +113,10 @@ public class Car : MonoBehaviour
                 BodyFunctions.instance.Die("Hit by a car", "Tip: Wait for the green light");
             }
         }
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<Enemy>().Die();
+        }
     }
 
     private void TargetWaypoint(int n) 

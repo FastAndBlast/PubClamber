@@ -15,7 +15,7 @@ public class CreditSceneManager : MonoBehaviour
 
     float time = 15;
 
-    float targetY = 500;
+    public float targetY = 500;
 
     private void Start()
     {

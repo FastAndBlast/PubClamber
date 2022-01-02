@@ -4,14 +4,21 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
+public enum GestureType { Wave, FlipOff };
+
 public class BodyFunctions : MonoBehaviour
 {
     public static BodyFunctions instance;
 
     public float blinkBlurTime;
     public float blinkBlindTime;
-    private float timeSinceLeftBlink;
-    private float timeSinceRightBlink;
+    //private float timeSinceLeftBlink;
+    //private float timeSinceRightBlink;
+    private float timeSinceBlink;
+
+    private bool eyesClosed = false;
+    private float blinkTimer;
+
 
     public float lungCapacity;
     public float airConsumptionRate;
@@ -42,10 +49,17 @@ public class BodyFunctions : MonoBehaviour
     public bool blinkingEasyMode;
     public bool noseHeld;
 
-    public GameObject rightBlurVolume;
-    public GameObject leftBlurVolume;
-    public GameObject leftBlinder;
-    public GameObject rightBlinder;
+    public bool gesturesEnabled;
+    public GestureType gesture;
+    public float gestureTime;
+
+    public GameObject blurVolume;
+    public GameObject blinder;
+
+    //public GameObject rightBlurVolume;
+    //public GameObject leftBlurVolume;
+    //public GameObject leftBlinder;
+    //public GameObject rightBlinder;
 
     //public SFXManager sfx;
 
@@ -54,6 +68,15 @@ public class BodyFunctions : MonoBehaviour
     {
         ResetValues();
 
+
+        if (!blinder)
+        {
+            blinder = GameObject.FindWithTag("CameraParent").transform.Find("Camera").Find("Blinder").gameObject;
+            blurVolume = GameObject.FindWithTag("CameraParent").transform.Find("Camera").Find("Blur").gameObject;
+        }
+        
+
+        /*
         if (!leftBlinder)
         {
             leftBlinder = GameObject.FindWithTag("CameraParent").transform.Find("LeftCamera").Find("Blinder").gameObject;
@@ -61,6 +84,7 @@ public class BodyFunctions : MonoBehaviour
             rightBlinder = GameObject.FindWithTag("CameraParent").transform.Find("RightCamera").Find("Blinder").gameObject;
             rightBlurVolume = GameObject.FindWithTag("CameraParent").transform.Find("RightCamera").Find("RightBlur").gameObject;
         }
+        */
     }
 
     void Awake()
@@ -98,8 +122,38 @@ public class BodyFunctions : MonoBehaviour
 
         if (blinkingEnabled)
         {
-            timeSinceLeftBlink += dtime;
-            timeSinceRightBlink += dtime;
+            //timeSinceLeftBlink += dtime;
+            //timeSinceRightBlink += dtime;
+            timeSinceBlink += dtime;
+
+            if (blinkingEasyMode && blinkTimer > 0)
+            {
+                blinkTimer -= dtime;
+                if (blinkTimer <= 0)
+                {
+                    eyesClosed = false;
+                }
+            }
+        }
+
+        if (gesturesEnabled && gestureTime > 0)
+        {
+            gestureTime -= dtime;
+            if (gesture == GestureType.FlipOff)
+            {
+                transform.Find("Canvas").Find("FlipOff").gameObject.SetActive(true);
+                transform.Find("Canvas").Find("Wave").gameObject.SetActive(false);
+            }
+            else
+            {
+                transform.Find("Canvas").Find("FlipOff").gameObject.SetActive(false);
+                transform.Find("Canvas").Find("Wave").gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            transform.Find("Canvas").Find("FlipOff").gameObject.SetActive(false);
+            transform.Find("Canvas").Find("Wave").gameObject.SetActive(false);
         }
 
         if (burpingEnabled)
@@ -112,7 +166,7 @@ public class BodyFunctions : MonoBehaviour
             airInLungs -= airConsumptionRate * dtime;
             CO2InLungs += airConsumptionRate * dtime;
             if (breathingState == 1)
-            // bretahing in
+            // breathing in
             {
                 if (breathingEasyMode)
                 {
@@ -207,11 +261,29 @@ public class BodyFunctions : MonoBehaviour
 
     void BlurEyes()
     {
-        bool leftBlurred = false;
-        bool rightBlurred = false;
-        bool leftBlind = false;
-        bool rightBlind = false;
+        //bool leftBlurred = false;
+        //bool rightBlurred = false;
+        //bool leftBlind = false;
+        //bool rightBlind = false;
+        bool blurred = false;
+        bool blind = false;
 
+        if (timeSinceBlink > blinkBlindTime || eyesClosed)
+        {
+            blind = true;
+        }
+        else
+        {
+            if (timeSinceBlink > blinkBlurTime)
+            {
+                blurred = true;
+            }
+        }
+
+        blinder.SetActive(blind);
+        blurVolume.SetActive(blurred);
+
+        /*
         if (timeSinceLeftBlink > blinkBlindTime)
         {
             leftBlind = true;
@@ -255,14 +327,36 @@ public class BodyFunctions : MonoBehaviour
             rightBlind = leftBlind;
         }
 
+        
+
         leftBlinder.SetActive(leftBlind);
         leftBlurVolume.SetActive(leftBlurred);
         rightBlinder.SetActive(rightBlind);
         rightBlurVolume.SetActive(rightBlurred);
+        */
     }
 
     void CheckInputs()
     {
+        if (Input.GetButtonDown("CloseEyes"))
+        {
+            eyesClosed = true;
+            if (blinkingEasyMode)
+            {
+                blinkTimer = 0.3f;
+            }
+        }
+
+        if (eyesClosed)
+        {
+            timeSinceBlink = 0;
+        }
+
+        if (Input.GetButtonDown("OpenEyes") && !blinkingEasyMode)
+        {
+            eyesClosed = false;
+        }
+        /*
         if (Input.GetButtonDown("LeftBlink"))
         {
             timeSinceLeftBlink = 0;
@@ -273,6 +367,47 @@ public class BodyFunctions : MonoBehaviour
             if (Input.GetButtonDown("RightBlink"))
             {
                 timeSinceRightBlink = 0;
+            }
+        }
+        */
+
+        if (Input.GetButtonDown("Wave"))
+        {
+            if (gesturesEnabled)
+            {
+                gesture = GestureType.Wave;
+                gestureTime = 1.5f;
+            }
+        }
+
+        if (Input.GetButtonDown("FlipOff"))
+        {
+            if (gesturesEnabled)
+            {
+                gesture = GestureType.FlipOff;
+                gestureTime = 1.5f;
+                if (noseHeld)
+                {
+                    if (GameManager.instance.profanity)
+                    {
+                        SFXManager.instance.PlaySFX(Random.Range(34, 37));
+                    }
+                    else
+                    {
+                        SFXManager.instance.PlaySFX(Random.Range(37, 40));
+                    }
+                }
+                else
+                {
+                    if (GameManager.instance.profanity)
+                    {
+                        SFXManager.instance.PlaySFX(Random.Range(28, 31));
+                    }
+                    else
+                    {
+                        SFXManager.instance.PlaySFX(Random.Range(31, 34));
+                    }
+                }
             }
         }
 
@@ -335,8 +470,10 @@ public class BodyFunctions : MonoBehaviour
         airInLungs = lungCapacity;
         CO2InLungs = 0;
 
-        timeSinceLeftBlink = 0;
-        timeSinceRightBlink = 0;
+        //timeSinceLeftBlink = 0;
+        //timeSinceRightBlink = 0;
+        timeSinceBlink = 0;
+        eyesClosed = false;
 
         timeSinceBurpNeeded = -burpMaxTimeBetween;
     }

@@ -514,8 +514,6 @@ public class WalkingManager : MonoBehaviour
 
         ragDoll.Flop();
 
-
-        print(GameManager.instance);
         if (GameManager.instance)
         {
             GameManager.instance.PlayerDeath(causeOfDeath, tip);

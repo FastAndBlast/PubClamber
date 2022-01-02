@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     public bool fadedBackPing = true;
 
+    private Transform spawnPoint;
+
     GameObject mainCameraParent
     {
         get
@@ -111,6 +113,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Checkpoint(Transform newSpawnPoint)
+    {
+        spawnPoint = newSpawnPoint;
+    }
+
+
     public void PlayerDeath(string causeOfDeath, string tip)
     {
         //UIManager.instance.Death(causeOfDeath);
@@ -136,14 +144,21 @@ public class GameManager : MonoBehaviour
         mainCameraParent.GetComponent<CameraController>().FocusSign(GameObject.FindWithTag("Sign").transform.GetChild(0));
     }
 
+    public void Restart()
+    {
+        foreach (Enemy enemy in Enemy.enemyList)
+        {
+            enemy.Restart();
+        }
+        SpawnPlayer();
+    }
+
     public void SpawnPlayer()
     {
         if (player)
         {
             Destroy(player);
         }
-
-        Transform spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
 
         GameObject playerInstance = Instantiate(playerCharacterPrefabs[level]);
 
@@ -156,6 +171,9 @@ public class GameManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
+
+        Enemy.enemyList = new List<Enemy>();
         endOfLevel = false;
         if (scene.buildIndex == SceneMaster.mainMenuScene || scene.buildIndex == SceneMaster.levelSelectScene)
         {
