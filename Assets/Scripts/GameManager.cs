@@ -54,6 +54,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static bool devMode = false;
+    public static bool recordMode = false;
+
     private void Awake()
     {
         if (instance)
@@ -72,6 +75,16 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            devMode = !devMode;
+            player.GetComponent<WalkingManager>().DevMode();
+        }
+        else if (Input.GetKeyDown(KeyCode.Y))
+        {
+            recordMode = !recordMode;
+        }
+
         if (endOfLevel)
         {
             if (endOfLevelTimer > 0)
@@ -160,6 +173,11 @@ public class GameManager : MonoBehaviour
             Destroy(player);
         }
 
+        if (level >= playerCharacterPrefabs.Count)
+        {
+            return;
+        }
+
         GameObject playerInstance = Instantiate(playerCharacterPrefabs[level]);
 
         playerInstance.transform.position = spawnPoint.position;
@@ -171,7 +189,10 @@ public class GameManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
+        if (GameObject.FindWithTag("SpawnPoint"))
+        {
+            spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
+        }
 
         Enemy.enemyList = new List<Enemy>();
         endOfLevel = false;

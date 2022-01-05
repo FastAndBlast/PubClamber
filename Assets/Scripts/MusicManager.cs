@@ -51,7 +51,14 @@ public class MusicManager : MonoBehaviour
         }
         else
         {
-            AudioClip playedClip = loops[GameManager.instance.level];
+            int clipIndex = GameManager.instance.level;
+
+            if (clipIndex >= loops.Count)
+            {
+                clipIndex = loops.Count - 1;
+            }
+
+            AudioClip playedClip = loops[clipIndex];
 
             if (SceneManager.GetActiveScene().buildIndex == SceneMaster.levelSelectScene || SceneManager.GetActiveScene().buildIndex == SceneMaster.mainMenuScene)
             {
@@ -66,13 +73,13 @@ public class MusicManager : MonoBehaviour
             sourceInstance.transform.parent = Camera.main.transform;
             sourceInstance.transform.localPosition = Vector3.zero;
 
-            loopTimer = loops[GameManager.instance.level].length - 4f;
+            loopTimer = loops[clipIndex].length - 4f;
 
             if (SceneManager.GetActiveScene().buildIndex == SceneMaster.levelSelectScene || SceneManager.GetActiveScene().buildIndex == SceneMaster.mainMenuScene)
             {
                 sourceInstance.GetComponent<AudioSource>().time = menuMusicTime;
                 sourceInstance.GetComponent<DestroyTimer>().time = playedClip.length - menuMusicTime + 0.1f;
-                loopTimer = (loops[GameManager.instance.level].length - 4f) - menuMusicTime;
+                loopTimer = (loops[clipIndex].length - 4f) - menuMusicTime;
             }
         }
     }

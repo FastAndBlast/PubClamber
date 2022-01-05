@@ -1809,7 +1809,7 @@ MonoBehaviour:
   leftFoot: {fileID: 4905518281448108746}
   rightFoot: {fileID: 4905518281485593448}
   state: 0
-  stepSpeed: 10
+  stepSpeed: 1.25
   shuffleSpeed: 0.5
   spinePart: {fileID: 9179061306987350454}
   spineStumbleAngle: 40
@@ -1894,7 +1894,7 @@ MonoBehaviour:
   breathingEasyMode: 1
   blinkingEasyMode: 0
   noseHeld: 0
-  gesturesEnabled: 0
+  gesturesEnabled: 1
   gesture: 0
   gestureTime: 0
   blurVolume: {fileID: 0}

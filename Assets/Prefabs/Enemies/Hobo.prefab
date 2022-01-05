@@ -6100,7 +6100,7 @@ Transform:
   m_GameObject: {fileID: 2578215766623117337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -4.706}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 8477345527402264693}
   m_Father: {fileID: 0}
@@ -6120,6 +6120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 5
   speed: 2
+  ghostPrefab: {fileID: 1719758832676058068, guid: a14394a3e54f8544fb9d9c8a5b558019, type: 3}
   gestureRequired: 0
 --- !u!54 &-4198447102861601463
 Rigidbody:

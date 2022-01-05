@@ -20,6 +20,7 @@ public class PhoneTrigger : MonoBehaviour
             GameObject sourceInstance = Instantiate(audioSourcePrefab);
 
             sourceInstance.GetComponent<AudioSource>().clip = phoneClip;
+            sourceInstance.GetComponent<AudioSource>().volume = 0.2f;
             sourceInstance.GetComponent<AudioSource>().Play();
             sourceInstance.GetComponent<DestroyTimer>().time = phoneClip.length + 0.1f;
             triggered = true;

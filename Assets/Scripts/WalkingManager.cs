@@ -87,6 +87,8 @@ public class WalkingManager : MonoBehaviour
 
     public bool on = true;
 
+    float originalStepSpeed;
+
     public void Start()
     {
         left = new Foot(leftFoot, new Vector3(-0.186948732f, 0.194999993f, 0.327000004f), FootEnum.Left);
@@ -110,6 +112,8 @@ public class WalkingManager : MonoBehaviour
         //right.forwardOffset = new Vector3(0.186948776f, 0.194999993f, 0.327000004f);
 
         //leftFootWorldPos = leftFootRestingPosition;
+
+        originalStepSpeed = stepSpeed;
     }
 
     private void Update()
@@ -509,7 +513,11 @@ public class WalkingManager : MonoBehaviour
 
     public void Die(string causeOfDeath, string tip)
     {
-        //TODO: ragdoll
+        if (GameManager.devMode)
+        {
+            return;
+        }
+
         on = false;
 
         ragDoll.Flop();
@@ -517,6 +525,18 @@ public class WalkingManager : MonoBehaviour
         if (GameManager.instance)
         {
             GameManager.instance.PlayerDeath(causeOfDeath, tip);
+        }
+    }
+
+    public void DevMode()
+    {
+        if (GameManager.devMode)
+        {
+            stepSpeed = 10;
+        }
+        else
+        {
+            stepSpeed = originalStepSpeed;
         }
     }
 

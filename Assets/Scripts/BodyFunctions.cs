@@ -120,7 +120,7 @@ public class BodyFunctions : MonoBehaviour
     {
         float dtime = Time.deltaTime;
 
-        if (blinkingEnabled)
+        if (blinkingEnabled && !GameManager.devMode && !GameManager.recordMode)
         {
             //timeSinceLeftBlink += dtime;
             //timeSinceRightBlink += dtime;

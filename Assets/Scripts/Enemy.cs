@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 
     public float speed = 5;
 
+    public GameObject ghostPrefab;
+
     bool active = false;
     bool setActive
     {
@@ -122,6 +124,11 @@ public class Enemy : MonoBehaviour
     {
         //enemyList.Remove(this);
         //Destroy(gameObject);
+
+        GameObject ghost = Instantiate(ghostPrefab);
+
+        ghost.transform.position = transform.position;
+        ghost.transform.rotation = transform.rotation;
 
         gameObject.SetActive(false);
     }
