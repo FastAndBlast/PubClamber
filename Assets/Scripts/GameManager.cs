@@ -217,6 +217,8 @@ public class GameManager : MonoBehaviour
         {
             paused = false;
             fadedBackPing = false;
+
+            UIManager.instance.Pause();
         }
     }
 

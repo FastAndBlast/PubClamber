@@ -17,8 +17,15 @@ public class VoiceLineObject : MonoBehaviour
     //List<AudioClip> playedClips = new List<AudioClip>();
 
 
+    public float delay = 0f;
+
     void Start()
     {
+        if (delay > 0)
+        {
+            return;
+        }
+
         if (GameManager.instance.profanity)
         {
             PlayVoiceline(clips[0]);
@@ -40,19 +47,39 @@ public class VoiceLineObject : MonoBehaviour
         */
     }
 
-    //private void Update()
-    //{
-        /*
-        time += Time.deltaTime;
-
-        for (int i = 0; i < clips.Count; i++)
+    private void Update()
+    {
+        if (delay > 0)
         {
-            if (!playedClips.Contains(clips[i]) && timeSignatures[i] < time)
+            delay -= Time.deltaTime;
+
+            if (delay <= 0)
             {
-                PlayVoiceline(clips[i]);
+                if (GameManager.instance.profanity)
+                {
+                    PlayVoiceline(clips[0]);
+                }
+                else
+                {
+                    PlayVoiceline(clips[1]);
+                }
             }
         }
-        */
+    }
+
+    //private void Update()
+    //{
+    /*
+    time += Time.deltaTime;
+
+    for (int i = 0; i < clips.Count; i++)
+    {
+        if (!playedClips.Contains(clips[i]) && timeSignatures[i] < time)
+        {
+            PlayVoiceline(clips[i]);
+        }
+    }
+    */
     //}
 
     public void PlayVoiceline(AudioClip clip)

@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour
         {
             if (BodyFunctions.instance.gestureTime > 0)
             {
-                if (BodyFunctions.instance.gesture == gestureRequired)
+                if (BodyFunctions.instance.gesture == gestureRequired && active)
                 {
                     Die();
                 }

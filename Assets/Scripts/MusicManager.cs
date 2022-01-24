@@ -15,7 +15,7 @@ public class MusicManager : MonoBehaviour
 
     public static MusicManager instance;
 
-    float loopTimer = 5f;
+    float loopTimer = 0f;
 
     float[] voiceLineLength = new float[6] { 7.6f, 8.5f, 4.5f, 6.6f, 8.1f, 6.7f };
 
@@ -55,7 +55,8 @@ public class MusicManager : MonoBehaviour
 
             if (clipIndex >= loops.Count)
             {
-                clipIndex = loops.Count - 1;
+                return;
+                //clipIndex = loops.Count - 1;
             }
 
             AudioClip playedClip = loops[clipIndex];

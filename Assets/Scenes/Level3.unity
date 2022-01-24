@@ -634,7 +634,7 @@ MonoBehaviour:
   - {fileID: 9066150435736407929, guid: 9fe9cb63bff4ce6408cbdbe38fc90216, type: 3}
   - {fileID: 140178707353503807, guid: c72f5dfe744de904a906d8ebc08d6511, type: 3}
   cars: []
-  timeBetweenCars: 10
+  timeBetweenCars: 7
 --- !u!1001 &189476199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2680,7 +2680,7 @@ MonoBehaviour:
   - {fileID: 9066150435736407929, guid: 9fe9cb63bff4ce6408cbdbe38fc90216, type: 3}
   - {fileID: 140178707353503807, guid: c72f5dfe744de904a906d8ebc08d6511, type: 3}
   cars: []
-  timeBetweenCars: 10
+  timeBetweenCars: 7
 --- !u!1001 &865366937
 PrefabInstance:
   m_ObjectHideFlags: 0

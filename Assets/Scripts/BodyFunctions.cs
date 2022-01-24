@@ -377,6 +377,14 @@ public class BodyFunctions : MonoBehaviour
             {
                 gesture = GestureType.Wave;
                 gestureTime = 1.5f;
+                if (noseHeld)
+                {
+                    SFXManager.instance.PlaySFX(Random.Range(43, 46));
+                }
+                else
+                {
+                    SFXManager.instance.PlaySFX(Random.Range(40, 43));
+                }
             }
         }
 

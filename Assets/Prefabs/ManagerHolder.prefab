@@ -84,15 +84,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d8a430aaa236af549b6dd0773ec061be, type: 3}
   - {fileID: 8300000, guid: 2e5e386e5f3919444a4d4c95ab29dec9, type: 3}
   - {fileID: 8300000, guid: e11ad53834babe6489aeea0fc39a7da4, type: 3}
+  - {fileID: 8300000, guid: e07fb2d4d66223246ac58c2dfd4cd341, type: 3}
+  - {fileID: 8300000, guid: 5b47cec0fa2d9c44693fd8499a6f7387, type: 3}
+  - {fileID: 8300000, guid: b758a834d4d75214e85affd8ec85dea8, type: 3}
+  - {fileID: 8300000, guid: 4fe4178df6fd8f54b818510ed1125d27, type: 3}
+  - {fileID: 8300000, guid: 732944ed792491347b7cecbb873e58eb, type: 3}
+  - {fileID: 8300000, guid: 5b0e05f0c2c57114288ad5cc79cf7dce, type: 3}
   audioSourcePrefab: {fileID: 6080823659866355401, guid: 626f69452638a3740921ad15afcbdd40, type: 3}
   playingClips: 
   clipVolume:
   - 1
   - 1
   - 1
-  - 0.5
-  - 0.5
-  - 0.5
+  - 0.3
+  - 0.3
+  - 0.3
   - 0.5
   - 0.5
   - 0.5

@@ -31,7 +31,11 @@ public class Road : MonoBehaviour
     void Update()
     {
         float dtime = Time.deltaTime;
-        timeSinceCar += dtime;
+        
+        if (!GameManager.paused)
+        {
+            timeSinceCar += dtime;
+        }
 
         if (timeSinceCar > timeBetweenCars)
         {
