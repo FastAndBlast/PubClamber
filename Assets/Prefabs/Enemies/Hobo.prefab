@@ -6119,7 +6119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 5
-  speed: 2
+  speed: 3
   ghostPrefab: {fileID: 1719758832676058068, guid: a14394a3e54f8544fb9d9c8a5b558019, type: 3}
   gestureRequired: 0
 --- !u!54 &-4198447102861601463

@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stenchScore: 3
-  range: 5
+  range: 4
 --- !u!1001 &5329351543084812691
 PrefabInstance:
   m_ObjectHideFlags: 0

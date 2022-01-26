@@ -65,7 +65,7 @@ public class CreditSceneManager : MonoBehaviour
             //scrollTransform.parent.Find("CutScene").gameObject.SetActive(false);
             scrollTransform.parent.Find("BlackScreen").gameObject.SetActive(true);
 
-            float newY = Mathf.MoveTowards(scrollTransform.localPosition.y, targetY, Time.deltaTime * 25);
+            float newY = Mathf.MoveTowards(scrollTransform.localPosition.y, targetY, Time.deltaTime * 50);
 
             
             newY += scroll * 4f;
